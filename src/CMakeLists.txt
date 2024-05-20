@@ -1,5 +1,5 @@
 # TODO: Cambiar el nombre del destino. Este va a ser el nombre del ejecutable
-set(TARGET_NAME PlantillaWxWidgets)
+set(4enlinea PlantillaWxWidgets)#le puse ese nombre, no sé si sirva
 
 project(${TARGET_NAME})
 
@@ -7,7 +7,7 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
 ######################################## DEPENDENCIAS ########################################
 
-# TODO: Si necesitan algún componente adicional de wxWidgets, agréguenlo a la lista
+# TODO: Si necesitan algún componente adicional de wxWidgets, agréguenlo a la lista( Preguntar al pofe)
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 
 if(wxWidgets_USE_FILE)
@@ -19,6 +19,9 @@ endif()
 set(SRCS
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
+    CMakeLists.txt
+    Info.plist 
+    main.exe.manifest #Además del main no sé si son necesarios(Preguntar al profe)
 )
 
 if(APPLE)
