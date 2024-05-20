@@ -6,7 +6,7 @@ add_executable(unit_tests
     test_aaa.cpp
 # TODO: Añadan acá el código fuente de su proyecto. Por ejemplo:
 #    ../src/aaa.cpp
-    /src/main.cpp #no sé si se pone así(Preguntar al profe) o si son necesarios los demas archivos de src
+    ../src/main.cpp #no sé si se pone así(Preguntar al profe) o si son necesarios los demas archivos de src
 )
 
 target_link_libraries(unit_tests
