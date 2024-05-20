@@ -1,7 +1,7 @@
 # TODO: Cambiar el nombre del destino. Este va a ser el nombre del ejecutable
 set(4enlinea PlantillaWxWidgets)#le puse ese nombre, no sé si sirva
 
-project(${4-en-linea})
+project(${4enlinea})
 
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
@@ -37,8 +37,8 @@ else()
     add_executable(${TARGET_NAME} WIN32 ${SRCS} main.exe.manifest)
 endif()
 
-target_include_directories(${4-en-linea} PUBLIC ${INCLUDE_DIR})
-target_link_libraries(${4-en-linea} ${wxWidgets_LIBRARIES})
+target_include_directories(${4enlinea} PUBLIC ${INCLUDE_DIR})#No sé si ese nombre es el que ocupa...
+target_link_libraries(${4enlinea} ${wxWidgets_LIBRARIES})
 
 # Si quisieran generar otro ejecutable, con otro nombre, simplemente repitan el proceso:
 # add_executable(NOMBRE_EJECUTABLE archivo1.cpp archivo2.cpp ...)
