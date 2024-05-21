@@ -1,5 +1,5 @@
 # TODO: Cambiar el nombre del destino. Este va a ser el nombre del ejecutable
-set(TARGET_NAME PlantillaWxWidgets) #le puse ese nombre, no sé si sirva
+set(TARGET_NAME PlantillaWxWidgets)
 
 project(${TARGET_NAME})
 
@@ -19,9 +19,6 @@ endif()
 set(SRCS
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
-    CMakeLists.txt
-    Info.plist 
-    main.exe.manifest #Además del main no sé si son necesarios(Preguntar al profe)
 )
 
 if(APPLE)
@@ -37,7 +34,7 @@ else()
     add_executable(${TARGET_NAME} WIN32 ${SRCS} main.exe.manifest)
 endif()
 
-target_include_directories(${TARGET_NAME} PUBLIC ${INCLUDE_DIR}) #No sé si ese nombre es el que ocupa...
+target_include_directories(${TARGET_NAME} PUBLIC ${INCLUDE_DIR})
 target_link_libraries(${TARGET_NAME} ${wxWidgets_LIBRARIES})
 
 # Si quisieran generar otro ejecutable, con otro nombre, simplemente repitan el proceso:

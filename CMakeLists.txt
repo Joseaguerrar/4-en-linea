@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 # TODO: Cambiar el nombre del proyecto/ya lo cambié
-project(4-en-linea LANGUAGES CXX)
+project(cuatroEnLinea LANGUAGES CXX)
 
 include(FetchContent)
 
