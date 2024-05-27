@@ -6,7 +6,6 @@ add_executable(unit_tests
     test_aaa.cpp
 # TODO: Añadan acá el código fuente de su proyecto. Por ejemplo:
 #    ../src/aaa.cpp
-    ../src/main.cpp #no sé si se pone así(Preguntar al profe) o si son necesarios los demas archivos de src
 )
 
 target_link_libraries(unit_tests
@@ -14,3 +13,14 @@ target_link_libraries(unit_tests
     GTest::gtest_main)
 
 add_test(AllTests unit_tests)
+
+target_include_directories(unit_tests
+PUBLIC
+"${Calculadora_SOURCE_DIR}/include"
+)
+
+target_link_libraries(unit_tests ${wxWidgets_LIBRARIES})
+
+include(GoogleTest)
+
+gtest_discover_tests(unit_tests)
