@@ -24,14 +24,12 @@ int Tablero::getFilas() { return filas; }
 bool Tablero::puedeTirar(int columna) {
   // Caso en que la columna este fuera de rango
   if (columna < 0 && columna > getColumnas()) {
-    // Hacer los throw
-    cout << "Columna fuera de rango" << endl;
+    throw invalid_argument("Columna seleccionada fuera del rango de la matriz");
     return false;
   }
   // Caso en que la columna este llena
   if (tablero[0][columnas] != '_') {
-    // Hacer los throw
-    cout << "Columna llena" << endl;
+    throw range_error("Columna llena, no puede agregar mas caracteres");
     return false;
   }
   return true;
@@ -77,7 +75,7 @@ bool Tablero:: comprobarGanador(char ficha) {
       }
     }
   }
-  //Diago Derecha//
+  //Diagonal Derecha
   for (int i = 0; i < filas-3; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
       if (tablero[i][j] == ficha && tablero[i+1][j + 1] == ficha && tablero[i+2][j + 2] == ficha && tablero[i+3][j + 3] == ficha) {
@@ -85,7 +83,7 @@ bool Tablero:: comprobarGanador(char ficha) {
       }
     }
   }
-  //Diago Izquierda//
+  //Diagonal Izquierda
   for (int i = 0; i < filas-3; ++i) {
     for (int j = 0; j < columnas; ++j) {
       if (tablero[i][j] == ficha && tablero[i+1][j - 1] == ficha && tablero[i+2][j -2 ] == ficha && tablero[i+3][j - 3] == ficha) {
