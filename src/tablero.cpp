@@ -58,7 +58,7 @@ bool Tablero::soltarFicha(int columna, char ficha) {
 }
 
 //Comprobar ganador
-bool Tablero:: comprobarGanador(char ficha) {
+bool Tablero:: comprobarGanador(char ficha){
   //Filas//
   for (int i = 0; i < filas; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
@@ -91,7 +91,9 @@ bool Tablero:: comprobarGanador(char ficha) {
       }
     }
   }
+  return false;
 }
+
 bool Tablero:: comprobarEmpate(){
   //Si alguno es vacío, retorna falso//
   for (int i = 0; i < filas; i++){
@@ -105,3 +107,9 @@ bool Tablero:: comprobarEmpate(){
   }
   return true;
 }
+
+//Esta este error dado por el cmake de tests, al parecer no reconoce tablero.hh
+/*fatal error: tablero.hh: No such file or directory
+    4 | #include <tablero.hh>
+      |          ^~~~~~~~~~~~
+compilation terminated.*/
