@@ -7,7 +7,7 @@ add_executable(unit_tests
     test_tablero.cpp
 # TODO: Añadan acá el código fuente de su proyecto. Por ejemplo:
 #    ../src/aaa.cpp
-     ../src/tablero.cpp
+    ../src/tablero.cpp
 )
 
 target_link_libraries(unit_tests
@@ -18,10 +18,9 @@ add_test(AllTests unit_tests)
 
 target_include_directories(unit_tests
 PUBLIC
-"${4-EN-LINEA_SOURCE_DIR}/include"
+"${4-en-linea_SAURCE_DIR}/include"
 )
 
-target_link_libraries(unit_tests ${wxWidgets_LIBRARIES})
 
 include(GoogleTest)
 
