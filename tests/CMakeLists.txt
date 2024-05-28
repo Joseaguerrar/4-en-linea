@@ -16,7 +16,7 @@ add_test(AllTests unit_tests)
 
 target_include_directories(unit_tests
 PUBLIC
-"${Calculadora_SOURCE_DIR}/include"
+"${4-EN-LINEA_SOURCE_DIR}/include"
 )
 
 target_link_libraries(unit_tests ${wxWidgets_LIBRARIES})
