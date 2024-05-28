@@ -33,6 +33,4 @@ int jugadorIAInteligente::seleccionarColumna(Tablero tableroActual) {
   return 0;
 }
 
-Tablero jugadorIAInteligente::minimax(Tablero tableroCopia, int profundidad, bool max){
-    
-}
+Tablero jugadorIAInteligente::minimax(Tablero tableroCopia, int profundidad, bool max) {}
