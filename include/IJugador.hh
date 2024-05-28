@@ -2,15 +2,16 @@
 #define IJUGADOR_HH
 
 #include <string>
+#include <tablero.hh>
 
 using namespace std;
+
 class IJugador {
 protected:
   virtual string getNombre();
   virtual void setNombre(string Nombre);
   virtual char getColorFicha();
-  // clase tablero aún no definida
-  virtual int seleccionarColumna(tablero tableroActual);
+  virtual int seleccionarColumna(Tablero tableroActual);
 };
 
 #endif

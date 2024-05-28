@@ -12,7 +12,7 @@
 
 
 */
-#include <Ijugador.hh>
+#include <IJugador.hh>
 #include <jugadorIAFacil.hh>
 #include <string>
 #include <random>
@@ -25,9 +25,8 @@ string jugadorIAFacil::getNombre(){return nombre;}
 
 char jugadorIAFacil::getColorFicha(){return colorFicha;}
 
-void jugadorIAFacil::setNombre(string Nombre){nombre = Nombre;}
 
-int jugadorIAFacil::seleccionarColumna(tablero tableroActual){
+int jugadorIAFacil::seleccionarColumna(Tablero tableroActual){
     int numeroColumnas = tableroActual.getColumnas();
     random_device rd;
     mt19937 eng(rd()); 

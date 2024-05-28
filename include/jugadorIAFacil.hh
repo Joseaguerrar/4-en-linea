@@ -1,8 +1,10 @@
 #ifndef JUGADORIAFACIL_HH
 #define JUGADORIAFACIL_HH
 
-#include <Ijugador.hh>
+#include <tablero.hh>
+#include <IJugador.hh>
 #include <string>
+
 using namespace std;
 
 class jugadorIAFacil : public IJugador {
@@ -10,8 +12,7 @@ public:
   jugadorIAFacil(string Nombre, char ColorFicha);
   string getNombre();
   char getColorFicha();
-  void setNombre(string Nombre);
-  int seleccionarColumna(tablero tableroActual);
+  int seleccionarColumna(Tablero tableroActual);
 
 private:
   string nombre;
