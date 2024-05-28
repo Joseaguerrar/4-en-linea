@@ -10,10 +10,11 @@ class Tablero {
         Tablero(int filas, int columnas);
         // Metodos
         bool puedeTirar(int columna);
-        bool soltarFicha(char ficha);
+        bool soltarFicha(int columna, char ficha);
         char mostrarTablero();
         int getColumnas();
         int getFilas();
+        vector<vector<char>> getCopiaTablero();
         vector<vector<char>> getTablero();
     private:
         vector<vector<char>> tablero;
