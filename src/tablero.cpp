@@ -60,7 +60,50 @@ bool Tablero::soltarFicha(int columna, char ficha) {
 }
 
 //Comprobar ganador
-bool verificarGanador(char ficha) {
-
+bool Tablero:: comprobarGanador(char ficha) {
+  //Filas//
+  for (int i = 0; i < filas; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha && tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
+          return true;
+      }
+    }
+  }
+  //Columnas//
+  for (int i = 0; i < filas-3; ++i) {
+    for (int j = 0; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i+1][j] == ficha && tablero[i+2][j] == ficha && tablero[i+3][j] == ficha) {
+          return true;
+      }
+    }
+  }
+  //Diago Derecha//
+  for (int i = 0; i < filas-3; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i+1][j + 1] == ficha && tablero[i+2][j + 2] == ficha && tablero[i+3][j + 3] == ficha) {
+          return true;
+      }
+    }
+  }
+  //Diago Izquierda//
+  for (int i = 0; i < filas-3; ++i) {
+    for (int j = 0; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i+1][j - 1] == ficha && tablero[i+2][j -2 ] == ficha && tablero[i+3][j - 3] == ficha) {
+          return true;
+      }
+    }
+  }
 }
-
+bool Tablero:: comprobarEmpate(){
+  //Si alguno es vacío, retorna falso//
+  for (int i = 0; i < filas; i++){
+    for (int j = 0; j < columnas; j++){
+        if (true)
+        {
+         tablero[i][j]=='_';
+         return false;
+        } 
+    }
+  }
+  return true;
+}

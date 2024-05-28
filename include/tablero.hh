@@ -15,6 +15,8 @@ class Tablero {
   // Metodos
   bool puedeTirar(int columna);
   bool soltarFicha(int columna, char ficha);
+  bool comprobarGanador(char ficha);
+  bool comprobarEmpate();
   char mostrarTablero();
   int getColumnas();
   int getFilas();
