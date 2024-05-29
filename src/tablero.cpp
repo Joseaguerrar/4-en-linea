@@ -8,7 +8,7 @@ using namespace std;
 
 // Constructor inicializado en las filas y columnas que quiere el usuario
 Tablero::Tablero(int filas, int columnas)
-    : tablero(filas, vector<char>(columnas, '_')),
+    : tablero(filas, vector<Ficha>(columnas, Ficha::Vacio)),
       filas(filas),
       columnas(columnas) {}
 
@@ -19,18 +19,19 @@ int Tablero::getColumnas() { return columnas; }
 // Metodo que obtiene la cantidad de filas para ser utilizxadas en otras clases
 int Tablero::getFilas() { return filas; }
 
+// Metodo que devuelve el enum de colorFicha
+Ficha Tablero::getColorFicha() { return colorFicha; }
+
 // Metodo que verifica si el jugador puede soltar una ficha en una columna
 // seleccionada
 bool Tablero::puedeTirar(int columna) {
   // Caso en que la columna este fuera de rango
   if (columna < 0 && columna > getColumnas()) {
     throw invalid_argument("Columna seleccionada fuera del rango de la matriz");
-    return false;
   }
   // Caso en que la columna este llena
-  if (tablero[0][columnas] != '_') {
+  if (tablero[0][columnas] != Ficha::Vacio) {
     throw range_error("Columna llena, no puede agregar mas caracteres");
-    return false;
   }
   return true;
 }
@@ -43,73 +44,69 @@ Tablero Tablero::getCopiaTablero() {
 }
 
 // Metodo privado que setea el tablero actual en una variable tablero
-void Tablero::setTablero(vector<vector<char>> tableroActual) {
+void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
   tablero = tableroActual;
 }
 
 // Metodo que suelta la ficha en la columna indicada que escogio el usuario
-bool Tablero::soltarFicha(int columna, char ficha) {
+bool Tablero::soltarFicha(int columna, Ficha ficha) {
   int filasTemp = filas - 1;
-  while (tablero[filasTemp][columna] != '_' && filasTemp >= 0) {
+  while (tablero[filasTemp][columna] != Ficha::Vacio && filasTemp >= 0) {
     filasTemp--;
   }
   tablero[filasTemp][columna] = ficha;
   return true;
 }
 
-//Comprobar ganador
-bool Tablero:: comprobarGanador(char ficha){
-  //Filas//
+// Comprobar ganador
+bool Tablero::comprobarGanador(Ficha ficha) {
+  // Filas//
   for (int i = 0; i < filas; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
-      if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha && tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
-          return true;
+      if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
+          tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
+        return true;
       }
     }
   }
-  //Columnas//
-  for (int i = 0; i < filas-3; ++i) {
+  // Columnas//
+  for (int i = 0; i < filas - 3; ++i) {
     for (int j = 0; j < columnas; ++j) {
-      if (tablero[i][j] == ficha && tablero[i+1][j] == ficha && tablero[i+2][j] == ficha && tablero[i+3][j] == ficha) {
-          return true;
+      if (tablero[i][j] == ficha && tablero[i + 1][j] == ficha &&
+          tablero[i + 2][j] == ficha && tablero[i + 3][j] == ficha) {
+        return true;
       }
     }
   }
-  //Diagonal Derecha
-  for (int i = 0; i < filas-3; ++i) {
+  // Diagonal Derecha
+  for (int i = 0; i < filas - 3; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
-      if (tablero[i][j] == ficha && tablero[i+1][j + 1] == ficha && tablero[i+2][j + 2] == ficha && tablero[i+3][j + 3] == ficha) {
-          return true;
+      if (tablero[i][j] == ficha && tablero[i + 1][j + 1] == ficha &&
+          tablero[i + 2][j + 2] == ficha && tablero[i + 3][j + 3] == ficha) {
+        return true;
       }
     }
   }
-  //Diagonal Izquierda
-  for (int i = 0; i < filas-3; ++i) {
-    for (int j = 0; j < columnas; ++j) {
-      if (tablero[i][j] == ficha && tablero[i+1][j - 1] == ficha && tablero[i+2][j -2 ] == ficha && tablero[i+3][j - 3] == ficha) {
-          return true;
+  // Diagonal Izquierda
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 3; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j - 1] == ficha &&
+          tablero[i + 2][j - 2] == ficha && tablero[i + 3][j - 3] == ficha) {
+        return true;
       }
     }
   }
   return false;
 }
 
-bool Tablero:: comprobarEmpate(){
-  //Si alguno es vacío, retorna falso//
-  for (int i = 0; i < filas; i++){
-    for (int j = 0; j < columnas; j++){
-        if (true)
-        {
-         tablero[i][j]=='_';
-         return false;
-        } 
+bool Tablero::comprobarEmpate() {
+  // Si alguno es vacío, retorna falso//
+  for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+      if (tablero[i][j] == Ficha::Vacio) {
+        return false;
+      }
     }
   }
   return true;
 }
-
-//Esta este error dado por el cmake de tests, al parecer no reconoce tablero.hh
-/*fatal error: tablero.hh: No such file or directory
-    4 | #include <tablero.hh>
-      |          ^~~~~~~~~~~~
-compilation terminated.*/

@@ -1,31 +1,35 @@
 #ifndef TABLERO_HH
 #define TABLERO_HH
 
-#include <memory>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 
 using namespace std;
+
+enum class Ficha { Rojo, Azul, Vacio };
 
 class Tablero {
  public:
   // Constructores
   Tablero(int filas, int columnas);
   // Metodos
+  Ficha getColorFicha();
   bool puedeTirar(int columna);
-  bool soltarFicha(int columna, char ficha);
-  bool comprobarGanador(char ficha);
+  bool soltarFicha(int columna, Ficha ficha);
+  bool comprobarGanador(Ficha ficha);
   bool comprobarEmpate();
-  char mostrarTablero();
+  void mostrarTablero();
   int getColumnas();
   int getFilas();
   Tablero getCopiaTablero();
-  vector<vector<char>> getTablero();
+  vector<vector<Ficha>> getTablero();
 
  private:
-  vector<vector<char>> tablero;
-  void setTablero(vector<vector<char>> tableroActual);
+  Ficha colorFicha;
+  vector<vector<Ficha>> tablero;
+  void setTablero(vector<vector<Ficha>> tableroActual);
   int filas;
   int columnas;
 };
