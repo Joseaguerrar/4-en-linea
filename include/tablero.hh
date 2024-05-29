@@ -17,12 +17,13 @@ class Tablero {
   // Metodos
   Ficha getColorFicha();
   bool puedeTirar(int columna);
-  bool soltarFicha(int columna, Ficha ficha);
+  void soltarFicha(int columna, Ficha ficha);
   bool comprobarGanador(Ficha ficha);
   bool comprobarEmpate();
   void mostrarTablero();
   int getColumnas();
   int getFilas();
+
   Tablero getCopiaTablero();
   vector<vector<Ficha>> getTablero();
 

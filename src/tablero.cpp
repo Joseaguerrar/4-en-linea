@@ -12,6 +12,11 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
+//Metodo que devuelve el tablero actual
+vector<vector<Ficha>> Tablero::getTablero(){
+  return tablero;
+}
+
 // Metodo que obtiene la cantidad de columnas para ser utilizadas en otras
 // clases
 int Tablero::getColumnas() { return columnas; }
@@ -26,11 +31,11 @@ Ficha Tablero::getColorFicha() { return colorFicha; }
 // seleccionada
 bool Tablero::puedeTirar(int columna) {
   // Caso en que la columna este fuera de rango
-  if (columna < 0 && columna > getColumnas()) {
+  if (columna < 0 && columna >= columnas) {
     throw invalid_argument("Columna seleccionada fuera del rango de la matriz");
   }
   // Caso en que la columna este llena
-  if (tablero[0][columnas] != Ficha::Vacio) {
+  if (tablero[0][columna] != Ficha::Vacio) {
     throw range_error("Columna llena, no puede agregar mas caracteres");
   }
   return true;
@@ -49,13 +54,12 @@ void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
 }
 
 // Metodo que suelta la ficha en la columna indicada que escogio el usuario
-bool Tablero::soltarFicha(int columna, Ficha ficha) {
+void Tablero::soltarFicha(int columna, Ficha ficha) {
   int filasTemp = filas - 1;
   while (tablero[filasTemp][columna] != Ficha::Vacio && filasTemp >= 0) {
     filasTemp--;
   }
   tablero[filasTemp][columna] = ficha;
-  return true;
 }
 
 // Comprobar ganador
