@@ -21,7 +21,7 @@ vector<vector<Ficha>> Tablero::getTablero(){
 // clases
 int Tablero::getColumnas() { return columnas; }
 
-// Metodo que obtiene la cantidad de filas para ser utilizxadas en otras clases
+// Metodo que obtiene la cantidad de filas para ser utilizadas en otras clases
 int Tablero::getFilas() { return filas; }
 
 // Metodo que devuelve el enum de colorFicha
@@ -62,7 +62,7 @@ void Tablero::soltarFicha(int columna, Ficha ficha) {
   tablero[filasTemp][columna] = ficha;
 }
 
-// Comprobar ganador
+// Metodo que comprueba al ganador
 bool Tablero::comprobarGanador(Ficha ficha) {
   // Filas//
   for (int i = 0; i < filas; ++i) {
@@ -103,6 +103,7 @@ bool Tablero::comprobarGanador(Ficha ficha) {
   return false;
 }
 
+//Metodo que comprueba si hubo un empate
 bool Tablero::comprobarEmpate() {
   // Si alguno es vacío, retorna falso//
   for (int i = 0; i < filas; i++) {
@@ -113,4 +114,23 @@ bool Tablero::comprobarEmpate() {
     }
   }
   return true;
+}
+
+
+//Metodo que muestra el tablero (sera necesario para imprimir el juego en consola)
+void Tablero::mostrarTablero(){
+  for(int i = 0; i < filas; i++){
+    for(int j = 0; j < columnas; j++){
+      if(tablero[i][j] == Ficha::Rojo){
+        cout<<'R'<<" ";
+      }
+      else if(tablero[i][j] == Ficha::Azul){
+        cout<<'A'<<" ";
+      }
+      else{
+        cout<<'_'<<" ";
+      }
+     }
+     cout<<endl;
+  }
 }
