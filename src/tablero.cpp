@@ -116,7 +116,6 @@ bool Tablero::comprobarEmpate() {
   return true;
 }
 
-
 //Metodo que muestra el tablero (sera necesario para imprimir el juego en consola)
 void Tablero::mostrarTablero(){
   for(int i = 0; i < filas; i++){
