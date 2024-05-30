@@ -31,7 +31,7 @@ Ficha Tablero::getColorFicha() { return colorFicha; }
 // seleccionada
 bool Tablero::puedeTirar(int columna) {
   // Caso en que la columna este fuera de rango
-  if (columna < 0 && columna >= columnas) {
+  if (columna < 0 || columna >= columnas) {
     throw invalid_argument("Columna seleccionada fuera del rango de la matriz");
   }
   // Caso en que la columna este llena
