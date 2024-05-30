@@ -12,10 +12,8 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
-//Metodo que devuelve el tablero actual
-vector<vector<Ficha>> Tablero::getTablero(){
-  return tablero;
-}
+// Metodo que devuelve el tablero actual
+vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
 
 // Metodo que obtiene la cantidad de columnas para ser utilizadas en otras
 // clases
@@ -40,6 +38,9 @@ bool Tablero::puedeTirar(int columna) {
   }
   return true;
 }
+
+// TO DO: Arreglar el get copia tablero a lo que sugirio el profesor
+//(Hacerlo como si fuera otro constructor)
 
 // Metodo que retorna una copia del tablero actual
 Tablero Tablero::getCopiaTablero() {
@@ -103,7 +104,7 @@ bool Tablero::comprobarGanador(Ficha ficha) {
   return false;
 }
 
-//Metodo que comprueba si hubo un empate
+// Metodo que comprueba si hubo un empate
 bool Tablero::comprobarEmpate() {
   // Si alguno es vacío, retorna falso//
   for (int i = 0; i < filas; i++) {
@@ -116,20 +117,19 @@ bool Tablero::comprobarEmpate() {
   return true;
 }
 
-//Metodo que muestra el tablero (sera necesario para imprimir el juego en consola)
-void Tablero::mostrarTablero(){
-  for(int i = 0; i < filas; i++){
-    for(int j = 0; j < columnas; j++){
-      if(tablero[i][j] == Ficha::Rojo){
-        cout<<'R'<<" ";
+// Metodo que muestra el tablero (sera necesario para imprimir el juego en
+// consola)
+void Tablero::mostrarTablero() {
+  for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+      if (tablero[i][j] == Ficha::Rojo) {
+        cout << 'R' << " ";
+      } else if (tablero[i][j] == Ficha::Azul) {
+        cout << 'A' << " ";
+      } else {
+        cout << '_' << " ";
       }
-      else if(tablero[i][j] == Ficha::Azul){
-        cout<<'A'<<" ";
-      }
-      else{
-        cout<<'_'<<" ";
-      }
-     }
-     cout<<endl;
+    }
+    cout << endl;
   }
 }
