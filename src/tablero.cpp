@@ -12,6 +12,12 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
+//constructor copia
+Tablero::Tablero(const Tablero& copiaTablero) {
+  filas = copiaTablero.filas;
+  columnas = copiaTablero.columnas;
+  vector<vector<Ficha>> tablero = copiaTablero.tablero;
+}
 // Metodo que devuelve el tablero actual
 vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
 

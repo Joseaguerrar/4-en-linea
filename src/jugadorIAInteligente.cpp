@@ -6,19 +6,19 @@
 #include <vector>
 using namespace std;
 
-jugadorIAInteligente::jugadorIAInteligente(string Nombre, char ColorFicha)
+jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha)
     : nombre(Nombre), colorFicha(ColorFicha) {}
 
 string jugadorIAInteligente::getNombre() { return nombre; }
 
-char jugadorIAInteligente::getColorFicha() { return colorFicha; }
+Ficha jugadorIAInteligente::getColorFicha() { return colorFicha; }
 
 int jugadorIAInteligente::seleccionarColumna(Tablero tableroActual) {
   Tablero copiaTablero = tableroActual.getCopiaTablero();
   copiaTablero = minimax(copiaTablero, 5, true);
 
-  vector<vector<char>> tableroSinModificar = tableroActual.getTablero();
-  vector<vector<char>> tableroModificado = copiaTablero.getTablero();
+  vector<vector<Ficha>> tableroSinModificar = tableroActual.getTablero();
+  vector<vector<Ficha>> tableroModificado = copiaTablero.getTablero();
 
   for (int i = 0; i < tableroActual.getFilas(); i++) {
     for (int j = 0; j < tableroActual.getColumnas(); j++) {

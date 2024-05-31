@@ -1,17 +1,3 @@
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-*/
 #include <IJugador.hh>
 #include <jugadorIAFacil.hh>
 #include <string>
@@ -19,11 +5,11 @@
 
 using namespace std;
 
-jugadorIAFacil::jugadorIAFacil(string Nombre, char ColorFicha): nombre(Nombre), colorFicha(ColorFicha){}
+jugadorIAFacil::jugadorIAFacil(string Nombre, Ficha ColorFicha): nombre(Nombre), colorFicha(ColorFicha){}
 
 string jugadorIAFacil::getNombre(){return nombre;}
 
-char jugadorIAFacil::getColorFicha(){return colorFicha;}
+Ficha jugadorIAFacil::getColorFicha(){return colorFicha;}
 
 
 int jugadorIAFacil::seleccionarColumna(Tablero tableroActual){

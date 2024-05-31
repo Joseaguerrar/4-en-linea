@@ -10,7 +10,7 @@ class IJugador {
 protected:
   virtual string getNombre();
   virtual void setNombre(string Nombre);
-  virtual char getColorFicha();
+  virtual Ficha getColorFicha();
   virtual int seleccionarColumna(Tablero tableroActual);
 };
 

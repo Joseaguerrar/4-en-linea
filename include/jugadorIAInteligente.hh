@@ -10,15 +10,15 @@ using namespace std;
 
 class jugadorIAInteligente : public IJugador {
  public:
-  jugadorIAInteligente(string Nombre, char ColorFicha);
+  jugadorIAInteligente(string Nombre, Ficha ColorFicha);
   string getNombre();
-  char getColorFicha();
+  Ficha getColorFicha();
   int seleccionarColumna(Tablero tableroActual);
 
  private:
   Tablero minimax(Tablero tableroActual, int profundidad, bool max);
   string nombre;
-  char colorFicha;
+  Ficha colorFicha;
 };
 
 #endif

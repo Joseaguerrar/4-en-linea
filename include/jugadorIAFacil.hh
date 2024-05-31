@@ -9,14 +9,14 @@ using namespace std;
 
 class jugadorIAFacil : public IJugador {
 public:
-  jugadorIAFacil(string Nombre, char ColorFicha);
+  jugadorIAFacil(string Nombre, Ficha ColorFicha);
   string getNombre();
-  char getColorFicha();
+  Ficha getColorFicha();
   int seleccionarColumna(Tablero tableroActual);
 
 private:
   string nombre;
-  char colorFicha;
+  Ficha colorFicha;
 };
 
 #endif
