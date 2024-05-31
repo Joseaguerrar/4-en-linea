@@ -24,7 +24,6 @@ class Tablero {
   void mostrarTablero();
   int getColumnas();
   int getFilas();
-  Tablero getCopiaTablero();
   vector<vector<Ficha>> getTablero();
 
  private:

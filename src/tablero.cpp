@@ -13,10 +13,11 @@ Tablero::Tablero(int filas, int columnas)
       columnas(columnas) {}
 
 //constructor copia
-Tablero::Tablero(const Tablero& copiaTablero) {
-  filas = copiaTablero.filas;
-  columnas = copiaTablero.columnas;
-  vector<vector<Ficha>> tablero = copiaTablero.tablero;
+Tablero::Tablero(const Tablero& copiaTablero)
+  : filas(copiaTablero.filas),
+    columnas(copiaTablero.columnas),
+    tablero(copiaTablero.tablero) {
+  cout << "constructor copia" << endl;
 }
 // Metodo que devuelve el tablero actual
 vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
@@ -47,13 +48,6 @@ bool Tablero::puedeTirar(int columna) {
 
 // TO DO: Arreglar el get copia tablero a lo que sugirio el profesor
 //(Hacerlo como si fuera otro constructor)
-
-// Metodo que retorna una copia del tablero actual
-Tablero Tablero::getCopiaTablero() {
-  Tablero copiaTablero(filas, columnas);
-  copiaTablero.setTablero(tablero);
-  return copiaTablero;
-}
 
 // Metodo privado que setea el tablero actual en una variable tablero
 void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {

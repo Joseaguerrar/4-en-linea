@@ -123,3 +123,17 @@ TEST(pruebaTablero, ganadorDiagonalIzquierda) {
   tablero.soltarFicha(3, Ficha::Azul);
   EXPECT_TRUE(tablero.comprobarGanador(Ficha::Azul));
 }
+
+TEST(pruebaTablero, copiaCorrectamenteCreada) {
+  Tablero tablero(4, 4);
+  Tablero copia = tablero;
+  EXPECT_EQ(tablero.getColumnas(), 4);
+  EXPECT_EQ(tablero.getFilas(), 4);
+  for (int i = 0; i < tablero.getFilas(); i++) {
+    for (int j = 0; j < tablero.getColumnas(); j++) {
+      Ficha celda = tablero.getTablero()[i][j];
+      Ficha celdaCopia = copia.getTablero()[i][j];
+      EXPECT_EQ(celda, celdaCopia);
+    }
+  }
+}
