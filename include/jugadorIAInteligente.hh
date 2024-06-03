@@ -16,9 +16,12 @@ class jugadorIAInteligente : public IJugador {
   int seleccionarColumna(Tablero tableroActual);
 
  private:
-  Tablero minimax(Tablero tableroActual, int profundidad, bool max);
+  int minimax(Tablero* tableroActual, int profundidad, bool max);
+  //TODO: de momento no está bien implementada
+  int distanciaHeuristica(Tablero* tableroCopia);
   string nombre;
-  Ficha colorFicha;
+  Ficha colorFichaMax;
+  Ficha colorFichaMin;
 };
 
 #endif
