@@ -1,6 +1,10 @@
-#include<wx/wx.h>
+#ifndef MAINFRAME_HH
+#define MAINFRAME_HH
+#include <wx/wx.h>
 
 class MainFrame: public wxFrame{
     public:
-        MainFrame(const wxString& title);
+        MainFrame(const wxString& tittle);
 };
+
+#endif

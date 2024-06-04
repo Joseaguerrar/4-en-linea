@@ -1,12 +1,12 @@
 #include <wx/wx.h>
+#include <App.hh>
+#include <MainFrame.hh>
 
-class MyApp : public wxApp {
- public:
-  virtual bool OnInit() {
-    wxFrame* frame = new wxFrame(NULL, wxID_ANY, "Hello, World!");
-    frame->Show(true);
-    return true;
-  }
-};
+wxIMPLEMENT_APP(App);
 
-wxIMPLEMENT_APP(MyApp);
+bool App::OnInit(){
+  MainFrame* mainFrame = new MainFrame("botones para jugadores");
+  mainFrame -> Show();
+  return true;
+}
+
