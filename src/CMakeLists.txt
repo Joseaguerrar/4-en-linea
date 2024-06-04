@@ -18,12 +18,11 @@ endif()
 set(SRCS1
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
+    MainFrame.cpp
     tablero.cpp
-    App.cpp
-    Mainframe.cpp
 )
 
-set(SRC2
+set(SRCS2
     main2.cpp
 )
 
