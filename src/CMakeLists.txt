@@ -28,6 +28,10 @@ set(SRCS2
     main2.cpp
 )
 
+set(SRC2
+    main2.cpp
+)
+
 if(APPLE)
     # create bundle on apple compiles
     add_executable(${TARGET_NAME} MACOSX_BUNDLE ${SRCS1})
