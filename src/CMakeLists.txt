@@ -28,7 +28,7 @@ set(SRCS2
     main2.cpp
 )
 
-set(SRC2
+set(SRCS2
     main2.cpp
 )
 
