@@ -18,5 +18,10 @@ int jugadorIAFacil::seleccionarColumna(Tablero tableroActual){
     mt19937 eng(rd()); 
     //TODO: comprobar si se puede tirar antes de hacer el return
     uniform_int_distribution<int> distr(0, tableroActual.getColumnas());
-    return distr(eng);
+    int columnaSeleccionada = distr(eng);
+    if(tableroActual.puedeTirar(columnaSeleccionada)){
+        return columnaSeleccionada;
+    }
+    throw("Seleccione otra columna"); 
+    return columnaSeleccionada;
 }

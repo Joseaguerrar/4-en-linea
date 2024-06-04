@@ -14,10 +14,13 @@ Ficha jugadorHumano::getColorFicha(){return colorFicha;}
 
 
 int jugadorHumano::seleccionarColumna(Tablero tableroActual){
-    int numeroColumnas = tableroActual.getColumnas();
+    int columnaSeleccionada = tableroActual.getColumnas();
     cout << "Ingrese la columna donde desea soltar la ficha: " << endl;
-    cin >> numeroColumnas;
+    cin >> columnaSeleccionada;
     //TODO: verificar con puede solar del tablero si es valido el movimiento si no pedir otro
     //TODO: hacer throw para que el usuario no ingrese nada raro
-    return numeroColumnas;
+    if(tableroActual.puedeTirar(columnaSeleccionada)){
+        return columnaSeleccionada;
+    }
+    throw("Seleccione otra columna");
 }
