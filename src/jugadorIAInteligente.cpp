@@ -1,6 +1,7 @@
 #include <iostream>
 #include <jugadorIAInteligente.hh>
 #include <memory>
+#include <IJugador.hh>
 #include <string>
 #include <tablero.hh>
 #include <vector>
