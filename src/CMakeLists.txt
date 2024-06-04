@@ -19,6 +19,8 @@ set(SRCS1
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
     tablero.cpp
+    App.cpp
+    Mainframe.cpp
 )
 
 set(SRC2
