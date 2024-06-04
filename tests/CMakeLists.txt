@@ -8,8 +8,10 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 add_executable(unit_tests
 # TODO: Añadan acá todos los archivos de pruebas
     test_tablero.cpp
+    test_jugadorHumano.cpp
 # TODO: Añadan acá el código fuente de su proyecto. Por ejemplo:
     ../src/tablero.cpp
+    ../src/jugadorHumano.cpp
 )
 
 target_link_libraries(unit_tests
