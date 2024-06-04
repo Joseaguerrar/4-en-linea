@@ -21,7 +21,7 @@ set(SRCS1
     tablero.cpp
 )
 
-set(SRC2
+set(SRCS2
     main2.cpp
 )
 
