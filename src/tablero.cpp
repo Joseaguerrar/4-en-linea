@@ -12,13 +12,6 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
-//constructor copia
-Tablero::Tablero(const Tablero& copiaTablero)
-  : filas(copiaTablero.filas),
-    columnas(copiaTablero.columnas),
-    tablero(copiaTablero.tablero) {
-  cout << "constructor copia" << endl;
-}
 // Metodo que devuelve el tablero actual
 vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
 
@@ -41,7 +34,7 @@ bool Tablero::puedeTirar(int columna) {
   }
   // Caso en que la columna este llena
   if (tablero[0][columna] != Ficha::Vacio) {
-    throw range_error("Columna llena, no puede agregar mas caracteres");
+    return false;
   }
   return true;
 }

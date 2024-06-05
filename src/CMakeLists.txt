@@ -25,6 +25,10 @@ set(SRCS1
 )
 
 set(SRCS2
+    tablero.cpp
+    jugadorIAInteligente.cpp
+    jugadorHumano.cpp
+    jugadorIAFacil.cpp
     main2.cpp
 )
 

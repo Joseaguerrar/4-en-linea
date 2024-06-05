@@ -14,7 +14,6 @@ class Tablero {
  public:
   // Constructores
   Tablero(int filas, int columnas);
-  Tablero(const Tablero& copiaTablero);
   // Metodos
   Ficha getColorFicha();
   bool puedeTirar(int columna);

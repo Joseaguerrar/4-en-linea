@@ -10,16 +10,18 @@ using namespace std;
 
 class jugadorIAInteligente : public IJugador {
  public:
-  jugadorIAInteligente(string Nombre, Ficha ColorFicha);
+  jugadorIAInteligente();
+  jugadorIAInteligente(string Nombre, Ficha ColorFicha, int Profundidad);
   string getNombre();
   Ficha getColorFicha();
   int seleccionarColumna(Tablero tableroActual);
 
  private:
-  int minimax(Tablero* tableroActual, int profundidad, bool max);
+  pair<int, int> minimax(Tablero& tableroActual, int profundidad, bool max);
   //TODO: de momento no está bien implementada
-  int distanciaHeuristica(Tablero* tableroCopia);
+  int distanciaHeuristica(Tablero& tableroCopia);
   string nombre;
+  int profundidad;
   Ficha colorFichaMax;
   Ficha colorFichaMin;
 };

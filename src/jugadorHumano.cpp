@@ -5,7 +5,7 @@
 #include <random>
 
 using namespace std;
-
+jugadorHumano::jugadorHumano(){}
 jugadorHumano::jugadorHumano(string Nombre, Ficha ColorFicha): nombre(Nombre), colorFicha(ColorFicha){}
 
 string jugadorHumano::getNombre(){return nombre;}
