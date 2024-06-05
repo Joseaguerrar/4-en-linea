@@ -21,6 +21,7 @@ set(SRCS1
     MainFrame.cpp
     tablero.cpp
     TableroFrame.cpp
+    JuegoFrame.cpp
 )
 
 set(SRCS2
