@@ -20,6 +20,7 @@ set(SRCS1
     main.cpp
     MainFrame.cpp
     tablero.cpp
+    TableroFrame.cpp
 )
 
 set(SRCS2

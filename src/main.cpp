@@ -2,7 +2,7 @@
 #include <App.hh>
 #include <MainFrame.hh>
 #include <wx/display.h>
-
+#include <TableroFrame.hh>
 
 wxIMPLEMENT_APP(App);
 
@@ -14,5 +14,8 @@ bool App::OnInit() {
     MainFrame* mainFrame = new MainFrame("Botones para jugadores");
     mainFrame->SetSize(anchoX, altoY);
     mainFrame->Show();
+    TableroFrame* tablero = new TableroFrame("Tablero");
+    tablero->SetSize(anchoX, altoY);
+    tablero->Show();
     return true;
 }

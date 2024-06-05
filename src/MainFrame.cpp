@@ -55,5 +55,4 @@ panel->SetBackgroundColour(*wxBLACK);
 
   //Crear un botón de salir
   wxButton* button = new wxButton(panel, wxID_ANY, "Salir", wxPoint(15, 250), wxSize(100,35));
-
 }
