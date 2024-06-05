@@ -3,6 +3,14 @@
 #include <MainFrame.hh>
 using namespace std;
 
+enum IDs{
+  BUTTON_ID = 2
+};
+
+wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
+  EVT_BUTTON(BUTTON_ID, MainFrame::OnButtonClicked)
+wxEND_EVENT_TABLE()
+
 MainFrame::MainFrame(const wxString& title): wxFrame(nullptr, wxID_ANY, title) {
 // Crear un panel
 wxPanel* panel = new wxPanel(this);
@@ -54,5 +62,14 @@ panel->SetBackgroundColour(*wxBLACK);
   wxChoice* dimensionY = new wxChoice(panel, wxID_ANY, wxPoint(100, 180), wxSize(100, -1), opcionesDimension);
 
   //Crear un botón de salir
-  wxButton* button = new wxButton(panel, wxID_ANY, "Salir", wxPoint(15, 250), wxSize(100,35));
+  wxButton* buttonSalir = new wxButton(panel, BUTTON_ID, "Salir", wxPoint(15, 250), wxSize(100,35));
+
+  //Crear botón para continuar
+  wxButton* buttonContinuar = new wxButton(panel, BUTTON_ID, "Continuar", wxPoint(150, 250), wxSize(100,35));
+
+}
+
+//evento de botón de salir
+void MainFrame::OnButtonClicked(wxCommandEvent& evt){
+  this->Close(true);
 }
