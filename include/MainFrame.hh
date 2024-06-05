@@ -4,7 +4,7 @@
 
 class MainFrame: public wxFrame{
     public:
-        MainFrame(const wxString& tittle);
+        MainFrame(const wxString& title);
 };
 
 #endif
