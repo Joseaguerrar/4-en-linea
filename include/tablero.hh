@@ -23,6 +23,7 @@ class Tablero {
   //función para que el minimax pueda volver a tener su copia al estado original en que se le pasó el tablero
   void quitarFicha();
   void mostrarTablero();
+  void reiniciarTablero();
   int getColumnas();
   int getFilas();
   vector<vector<Ficha>> getTablero();

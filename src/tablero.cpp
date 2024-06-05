@@ -47,6 +47,15 @@ void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
   tablero = tableroActual;
 }
 
+//metodo para reiniciar el tablero y volver a jugar si se desea
+void Tablero::reiniciarTablero() {
+  for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+      tablero[i][j] = Ficha::Vacio;
+    }
+  }
+}
+
 // Metodo que suelta la ficha en la columna indicada que escogio el usuario
 void Tablero::soltarFicha(int columna, Ficha ficha) {
   int filasTemp = filas - 1;
