@@ -64,7 +64,7 @@ TEST(pruebaTablero, tableroLleno) {
   tablero.soltarFicha(2, Ficha::Rojo);
   tablero.soltarFicha(2, Ficha::Azul);
   tablero.soltarFicha(2, Ficha::Rojo);
-  EXPECT_THROW(tablero.puedeTirar(2), range_error);
+  EXPECT_FALSE(tablero.puedeTirar(2));
 }
 
 TEST(pruebaTablero, empate) {
