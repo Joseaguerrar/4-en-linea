@@ -19,8 +19,9 @@ int jugadorHumano::seleccionarColumna(Tablero tableroActual){
     cin >> columnaSeleccionada;
     //TODO: verificar con puede solar del tablero si es valido el movimiento si no pedir otro
     //TODO: hacer throw para que el usuario no ingrese nada raro
-    if(tableroActual.puedeTirar(columnaSeleccionada)){
-        return columnaSeleccionada;
+    while(!tableroActual.puedeTirar(columnaSeleccionada)){
+        cout << "La colummna seleccionada no es válida, ingrese otra: " << endl;
+        cin >> columnaSeleccionada;
     }
-    throw("Seleccione otra columna");
+    return columnaSeleccionada;
 }
