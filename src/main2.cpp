@@ -9,6 +9,9 @@ int seleccionColumna();
 string pedirNombre(int);
 
 int main(){
+    /*esta parte solo la comenté para que se ejecutara de momento la prueba de humanos,
+     si se quiere ver solo se le quita el comentario y se le cambia el nombre de variable columna*/
+    
     /*Tablero prueba(7,7);
     jugadorIAInteligente jugador1 = jugadorIAInteligente("jugador1", Ficha::Azul, 5);
     jugadorIAInteligente jugador2 = jugadorIAInteligente("jugador2", Ficha::Rojo, 1);

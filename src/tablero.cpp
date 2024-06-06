@@ -122,12 +122,13 @@ bool Tablero::comprobarEmpate() {
 // Metodo que muestra el tablero (sera necesario para imprimir el juego en
 // consola)
 void Tablero::mostrarTablero() {
+  //Nuevo
   for (int i = 0; i < columnas; i++)
   {
     cout<<i+1<<" ";
   }
   cout<<endl;
-  
+  //Nuevo
   for (int i = 0; i < filas; i++) {
     for (int j = 0; j < columnas; j++) {
       if (tablero[i][j] == Ficha::Rojo) {
