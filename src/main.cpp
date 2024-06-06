@@ -1,6 +1,6 @@
 #include <wx/wx.h>
 #include <App.hh>
-#include <MainFrame.hh>
+#include <MenuFrame.hh>
 #include <wx/display.h>
 #include <TableroFrame.hh>
 
@@ -11,11 +11,8 @@ bool App::OnInit() {
     wxRect geometriaPantalla = pantalla.GetGeometry();
     int anchoX = geometriaPantalla.GetWidth();
     int altoY = geometriaPantalla.GetHeight();
-    MainFrame* mainFrame = new MainFrame("Botones para jugadores");
-    mainFrame->SetSize(anchoX, altoY);
-    mainFrame->Show();
-    TableroFrame* tablero = new TableroFrame("Tablero");
-    tablero->SetSize(anchoX, altoY);
-    tablero->Show();
+    MenuFrame* menuFrame = new MenuFrame("Botones para jugadores");
+    menuFrame->SetSize(anchoX, altoY);
+    menuFrame->Show();
     return true;
 }

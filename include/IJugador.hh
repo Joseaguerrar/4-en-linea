@@ -7,7 +7,7 @@
 using namespace std;
 
 class IJugador {
-protected:
+ protected:
   virtual string getNombre();
   virtual void setNombre(string Nombre);
   virtual Ficha getColorFicha();

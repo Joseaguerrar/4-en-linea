@@ -18,7 +18,7 @@ endif()
 set(SRCS1
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
-    MainFrame.cpp
+    MenuFrame.cpp
     tablero.cpp
     TableroFrame.cpp
     JuegoFrame.cpp

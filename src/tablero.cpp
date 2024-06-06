@@ -12,11 +12,11 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
-//constructor copia
+// constructor copia
 Tablero::Tablero(const Tablero& copiaTablero)
-  : filas(copiaTablero.filas),
-    columnas(copiaTablero.columnas),
-    tablero(copiaTablero.tablero) {
+    : filas(copiaTablero.filas),
+      columnas(copiaTablero.columnas),
+      tablero(copiaTablero.tablero) {
   cout << "constructor copia" << endl;
 }
 // Metodo que devuelve el tablero actual

@@ -5,7 +5,7 @@
 
 class TableroFrame: public wxFrame{
     public:
-        TableroFrame(const wxString& title);
+        TableroFrame(const wxString& title, int filas, int columnas);
     private:
         void OnPaint(wxPaintEvent& event);
         wxDECLARE_EVENT_TABLE();
