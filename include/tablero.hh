@@ -14,14 +14,16 @@ class Tablero {
  public:
   // Constructores
   Tablero(int filas, int columnas);
-  Tablero(const Tablero& copiaTablero);
   // Metodos
   Ficha getColorFicha();
   bool puedeTirar(int columna);
   void soltarFicha(int columna, Ficha ficha);
   bool comprobarGanador(Ficha ficha);
   bool comprobarEmpate();
+  //función para que el minimax pueda volver a tener su copia al estado original en que se le pasó el tablero
+  void quitarFicha();
   void mostrarTablero();
+  void reiniciarTablero();
   int getColumnas();
   int getFilas();
   vector<vector<Ficha>> getTablero();

@@ -9,6 +9,7 @@ using namespace std;
 
 class jugadorIAFacil : public IJugador {
 public:
+  jugadorIAFacil();
   jugadorIAFacil(string Nombre, Ficha ColorFicha);
   string getNombre();
   Ficha getColorFicha();

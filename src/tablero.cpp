@@ -12,13 +12,6 @@ Tablero::Tablero(int filas, int columnas)
       filas(filas),
       columnas(columnas) {}
 
-// constructor copia
-Tablero::Tablero(const Tablero& copiaTablero)
-    : filas(copiaTablero.filas),
-      columnas(copiaTablero.columnas),
-      tablero(copiaTablero.tablero) {
-  cout << "constructor copia" << endl;
-}
 // Metodo que devuelve el tablero actual
 vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
 
@@ -41,7 +34,7 @@ bool Tablero::puedeTirar(int columna) {
   }
   // Caso en que la columna este llena
   if (tablero[0][columna] != Ficha::Vacio) {
-    throw range_error("Columna llena, no puede agregar mas caracteres");
+    return false;
   }
   return true;
 }
@@ -52,6 +45,15 @@ bool Tablero::puedeTirar(int columna) {
 // Metodo privado que setea el tablero actual en una variable tablero
 void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
   tablero = tableroActual;
+}
+
+//metodo para reiniciar el tablero y volver a jugar si se desea
+void Tablero::reiniciarTablero() {
+  for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+      tablero[i][j] = Ficha::Vacio;
+    }
+  }
 }
 
 // Metodo que suelta la ficha en la columna indicada que escogio el usuario
@@ -120,6 +122,13 @@ bool Tablero::comprobarEmpate() {
 // Metodo que muestra el tablero (sera necesario para imprimir el juego en
 // consola)
 void Tablero::mostrarTablero() {
+  //Nuevo
+  for (int i = 0; i < columnas; i++)
+  {
+    cout<<i+1<<" ";
+  }
+  cout<<endl;
+  //Nuevo
   for (int i = 0; i < filas; i++) {
     for (int j = 0; j < columnas; j++) {
       if (tablero[i][j] == Ficha::Rojo) {

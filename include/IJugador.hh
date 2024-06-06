@@ -7,11 +7,10 @@
 using namespace std;
 
 class IJugador {
- protected:
-  virtual string getNombre();
-  virtual void setNombre(string Nombre);
-  virtual Ficha getColorFicha();
-  virtual int seleccionarColumna(Tablero tableroActual);
+public:
+  virtual string getNombre() = 0;
+  virtual Ficha getColorFicha() = 0;
+  virtual int seleccionarColumna(Tablero tableroActual) = 0;
 };
 
 #endif

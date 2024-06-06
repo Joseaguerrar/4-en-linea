@@ -20,11 +20,24 @@ set(SRCS1
     main.cpp
     MenuFrame.cpp
     tablero.cpp
+<<<<<<< HEAD
     TableroFrame.cpp
     JuegoFrame.cpp
 )
 
 set(SRCS2
+=======
+    jugadorIAInteligente.cpp
+    jugadorHumano.cpp
+    jugadorIAFacil.cpp
+)
+
+set(SRCS2
+    tablero.cpp
+    jugadorIAInteligente.cpp
+    jugadorHumano.cpp
+    jugadorIAFacil.cpp
+>>>>>>> main
     main2.cpp
 )
 
