@@ -18,6 +18,7 @@ endif()
 set(SRCS1
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
+    TableroFrame.cpp
     MenuFrame.cpp
     tablero.cpp
     jugadorIAInteligente.cpp
