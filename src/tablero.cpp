@@ -39,9 +39,6 @@ bool Tablero::puedeTirar(int columna) {
   return true;
 }
 
-// TO DO: Arreglar el get copia tablero a lo que sugirio el profesor
-//(Hacerlo como si fuera otro constructor)
-
 // Metodo privado que setea el tablero actual en una variable tablero
 void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
   tablero = tableroActual;
@@ -151,11 +148,11 @@ void Tablero::mostrarTablero() {
     cout << endl;
   }
 }
-
+//Retorna el numero de victorias del jugador con fichas azules
 int Tablero::getVictoriasAzul(){
   return victoriasFichaAzul;
 }
-
+//Retorna el numero de victorias del jugador con fichas rojas
 int Tablero::getVictoriasRojas(){
   return victoriasFichaRoja;
 }
