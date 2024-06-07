@@ -134,7 +134,9 @@ void crearIAyIA(){
 }
 */ //Ciclos//
 void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Tablero tablero){
-    int columna;
+    int columna, victoriasA=0,victoriasR=0;
+    tablero.setvictoriasA(victoriasA);
+    tablero.setvictoriasR(victoriasR);
     tablero.mostrarTablero();
         while (!tablero.comprobarEmpate())
         {
@@ -144,6 +146,8 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {
                 tablero.mostrarTablero();
+                victoriasA++;
+                tablero.setvictoriasA(victoriasA);
                 cout<<"Se terminó el juego, ganó: "<<jugador1.getNombre()<<endl;
                 //TO DO: Arreglar tema de las victorias
                 cout<<"Victorias de "<<jugador1.getNombre()<<": "<<tablero.getVictoriasAzul()<<endl;
@@ -160,7 +164,10 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
             if (tablero.comprobarGanador(jugador2.getColorFicha()))
             {
                 tablero.mostrarTablero();
+                victoriasR++;
+                tablero.setvictoriasR(victoriasR);
                 cout<<"Se terminó el juego, ganó: "<<jugador2.getNombre()<<endl;
+                cout<<"Victorias de "<<jugador2.getNombre()<<": "<<tablero.getVictoriasRojas()<<endl;
                 break;
             }
             tablero.mostrarTablero();
@@ -169,6 +176,8 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
     {
         tablero.mostrarTablero();
         cout<<"Se terminó el juego, es un empate! "<<endl;
+        cout<<"Marcador Global: "<<endl;
+        cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
     }
 }
 //Funciones para los datos//
