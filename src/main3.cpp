@@ -99,6 +99,7 @@ void jugar() {
         }
     }
 }
+//Juegos
 void crearHyH(){
     jugadorHumano jugador1= crearJugadorH(1);
     jugadorHumano jugador2=crearJugadorH(2);
@@ -134,50 +135,39 @@ void crearIAyIA(){
 */ //Ciclos//
 void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Tablero tablero){
     int columna;
-    bool juegoactivo=true;
     tablero.mostrarTablero();
         while (!tablero.comprobarEmpate())
         {
             cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
-            columna=seleccionColumna()-1;
-            while (!tablero.puedeTirar(columna))
-            {
-                cout<<"Columna no válida, intente de nuevo..."<<endl;
-                columna=seleccionColumna();
-            }
+            columna=jugador1.seleccionarColumna(tablero);
             tablero.soltarFicha(columna,jugador1.getColorFicha());
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {
                 tablero.mostrarTablero();
                 cout<<"Se terminó el juego, ganó: "<<jugador1.getNombre()<<endl;
-                juegoactivo=false;
+                break;
+            }
+            if (tablero.comprobarEmpate())
+            {
                 break;
             }
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador2.getNombre()<<endl; 
-            columna=seleccionColumna()-1;
-            while (!tablero.puedeTirar(columna))
-            {
-                cout<<"Columna no válida, intente de nuevo..."<<endl;
-                columna=seleccionColumna();
-            }
+            columna=jugador2.seleccionarColumna(tablero);
             tablero.soltarFicha(columna,jugador2.getColorFicha());
-            tablero.mostrarTablero();
             if (tablero.comprobarGanador(jugador2.getColorFicha()))
             {
                 tablero.mostrarTablero();
                 cout<<"Se terminó el juego, ganó: "<<jugador2.getNombre()<<endl;
-                juegoactivo=false;
                 break;
             }
+            tablero.mostrarTablero();
         }
     if (tablero.comprobarEmpate())
     {
+        tablero.mostrarTablero();
         cout<<"Se terminó el juego, es un empate! "<<endl;
-    }
-    
-        
-      
+    }    
 }
 //Funciones para los datos//
 Tablero crearTablero(){
