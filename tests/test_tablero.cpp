@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-
 #include <tablero.hh>
 
 TEST(pruebaTablero, constructor) {
