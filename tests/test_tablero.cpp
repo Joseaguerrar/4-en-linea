@@ -74,6 +74,8 @@ TEST(pruebaTablero, empate) {
   tablero.soltarFicha(1, Ficha::Rojo);
   tablero.soltarFicha(1, Ficha::Azul);
   EXPECT_TRUE(tablero.comprobarEmpate());
+  EXPECT_EQ(tablero.getVictoriasAzul(), 0);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
 
 TEST(pruebaTablero, ganadorColumna) {
@@ -83,6 +85,8 @@ TEST(pruebaTablero, ganadorColumna) {
   tablero.soltarFicha(0, Ficha::Rojo);
   tablero.soltarFicha(0, Ficha::Rojo);
   EXPECT_TRUE(tablero.comprobarGanador(Ficha::Rojo));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 0);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 1);
 }
 
 TEST(pruebaTablero, ganadorFila) {
@@ -92,6 +96,8 @@ TEST(pruebaTablero, ganadorFila) {
   tablero.soltarFicha(2, Ficha::Rojo);
   tablero.soltarFicha(3, Ficha::Rojo);
   EXPECT_TRUE(tablero.comprobarGanador(Ficha::Rojo));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 0);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 1);
 }
 
 TEST(pruebaTablero, ganadorDiagonalDerecha) {
@@ -107,6 +113,8 @@ TEST(pruebaTablero, ganadorDiagonalDerecha) {
   tablero.soltarFicha(2, Ficha::Azul);
   tablero.soltarFicha(3, Ficha::Azul);
   EXPECT_TRUE(tablero.comprobarGanador(Ficha::Azul));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 1);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
 
 TEST(pruebaTablero, ganadorDiagonalIzquierda) {
@@ -122,6 +130,8 @@ TEST(pruebaTablero, ganadorDiagonalIzquierda) {
   tablero.soltarFicha(2, Ficha::Azul);
   tablero.soltarFicha(3, Ficha::Azul);
   EXPECT_TRUE(tablero.comprobarGanador(Ficha::Azul));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 1);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
 
 TEST(pruebaTablero, copiaCorrectamenteCreada) {
@@ -136,4 +146,43 @@ TEST(pruebaTablero, copiaCorrectamenteCreada) {
       EXPECT_EQ(celda, celdaCopia);
     }
   }
+}
+
+TEST(pruebaTablero, reiniciarTablero){
+  Tablero tablero(4, 4);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  EXPECT_TRUE(tablero.comprobarGanador(Ficha::Azul));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 1);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
+
+  tablero.reiniciarTablero();
+
+  for (int i = 0; i < tablero.getFilas(); i++) {
+    for (int j = 0; j < tablero.getColumnas(); j++) {
+      Ficha celda = tablero.getTablero()[i][j];
+      EXPECT_EQ(celda, Ficha::Vacio);
+    }
+  }
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  EXPECT_TRUE(tablero.comprobarGanador(Ficha::Azul));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 2);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
