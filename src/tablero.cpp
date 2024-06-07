@@ -68,6 +68,12 @@ void Tablero::soltarFicha(int columna, Ficha ficha) {
 // Metodo que comprueba al ganador
 bool Tablero::comprobarGanador(Ficha ficha) {
   // Filas//
+  if(ficha == Ficha::Azul){
+    victoriasFichaAzul++;
+  }else{
+    victoriasFichaRoja++;
+  }
+
   for (int i = 0; i < filas; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
       if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
@@ -103,6 +109,9 @@ bool Tablero::comprobarGanador(Ficha ficha) {
       }
     }
   }
+
+  victoriasFichaAzul--;
+  victoriasFichaRoja--;
   return false;
 }
 
@@ -141,4 +150,12 @@ void Tablero::mostrarTablero() {
     }
     cout << endl;
   }
+}
+
+int Tablero::getVictoriasAzul(){
+  return victoriasFichaAzul;
+}
+
+int Tablero::getVictoriasRojas(){
+  return victoriasFichaRoja;
 }
