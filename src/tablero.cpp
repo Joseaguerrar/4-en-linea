@@ -44,7 +44,7 @@ void Tablero::setTablero(vector<vector<Ficha>> tableroActual) {
   tablero = tableroActual;
 }
 
-//metodo para reiniciar el tablero y volver a jugar si se desea
+// metodo para reiniciar el tablero y volver a jugar si se desea
 void Tablero::reiniciarTablero() {
   for (int i = 0; i < filas; i++) {
     for (int j = 0; j < columnas; j++) {
@@ -65,9 +65,9 @@ void Tablero::soltarFicha(int columna, Ficha ficha) {
 // Metodo que comprueba al ganador
 bool Tablero::comprobarGanador(Ficha ficha) {
   // Filas//
-  if(ficha == Ficha::Azul){
+  if (ficha == Ficha::Azul) {
     victoriasFichaAzul++;
-  }else{
+  } else {
     victoriasFichaRoja++;
   }
 
@@ -128,13 +128,12 @@ bool Tablero::comprobarEmpate() {
 // Metodo que muestra el tablero (sera necesario para imprimir el juego en
 // consola)
 void Tablero::mostrarTablero() {
-  //Nuevo
-  for (int i = 0; i < columnas; i++)
-  {
-    cout<<i+1<<" ";
+  // Nuevo
+  for (int i = 0; i < columnas; i++) {
+    cout << i + 1 << " ";
   }
-  cout<<endl;
-  //Nuevo
+  cout << endl;
+  // Nuevo
   for (int i = 0; i < filas; i++) {
     for (int j = 0; j < columnas; j++) {
       if (tablero[i][j] == Ficha::Rojo) {
@@ -148,11 +147,7 @@ void Tablero::mostrarTablero() {
     cout << endl;
   }
 }
-//Retorna el numero de victorias del jugador con fichas azules
-int Tablero::getVictoriasAzul(){
-  return victoriasFichaAzul;
-}
-//Retorna el numero de victorias del jugador con fichas rojas
-int Tablero::getVictoriasRojas(){
-  return victoriasFichaRoja;
-}
+// Retorna el numero de victorias del jugador con fichas azules
+int Tablero::getVictoriasAzul() { return victoriasFichaAzul; }
+// Retorna el numero de victorias del jugador con fichas rojas
+int Tablero::getVictoriasRojas() { return victoriasFichaRoja; }
