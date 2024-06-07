@@ -5,7 +5,7 @@
 #include <jugadorHumano.hh>
 using namespace std;
 
-int seleccionColumna();
+/*int seleccionColumna();
 string pedirNombre(int);
 
 int main(){
@@ -30,7 +30,7 @@ int main(){
 
     //Ciclo Juego con 2 humanos
     //TODO: me parece que no es necesario los ciclos while para comprobar si es válida la columna ya que solo se aborta
-    Tablero tablero2(8,8);
+    /*Tablero tablero2(8,8);
     int columna;
     string nombre1,nombre2;
     nombre1=pedirNombre(1);
@@ -78,15 +78,15 @@ int main(){
     }
     return 0;
 }
-int seleccionColumna(){
+/*int seleccionColumna(){
     int seleccion;
     cout<<"Seleccione una columna: "<<endl;
     cin>>seleccion;
     return seleccion;
 }
-string pedirNombre(int n){
+/*string pedirNombre(int n){
     string nombre;
     cout<<"Digite el nombre para Jugador"<< n<<": " <<endl;
     cin>>nombre;
     return nombre;
-}
+}*/
