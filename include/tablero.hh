@@ -20,7 +20,8 @@ class Tablero {
   void soltarFicha(int columna, Ficha ficha);
   bool comprobarGanador(Ficha ficha);
   bool comprobarEmpate();
-  //función para que el minimax pueda volver a tener su copia al estado original en que se le pasó el tablero
+  // función para que el minimax pueda volver a tener su copia al estado
+  // original en que se le pasó el tablero
   void quitarFicha();
   void mostrarTablero();
   void reiniciarTablero();

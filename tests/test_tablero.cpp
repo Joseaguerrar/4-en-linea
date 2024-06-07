@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+
 #include <tablero.hh>
 
 TEST(pruebaTablero, constructor) {
@@ -147,7 +148,7 @@ TEST(pruebaTablero, copiaCorrectamenteCreada) {
   }
 }
 
-TEST(pruebaTablero, reiniciarTablero){
+TEST(pruebaTablero, reiniciarTablero) {
   Tablero tablero(4, 4);
   tablero.soltarFicha(3, Ficha::Rojo);
   tablero.soltarFicha(3, Ficha::Rojo);
