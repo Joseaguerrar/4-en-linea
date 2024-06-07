@@ -54,7 +54,7 @@ TEST(pruebaTablero, puedeTirar2) {
 
 TEST(pruebaTablero, fueraRango) {
   Tablero tablero(5, 5);
-  EXPECT_THROW(tablero.puedeTirar(6), invalid_argument);
+  EXPECT_FALSE(tablero.puedeTirar(6));
 }
 
 TEST(pruebaTablero, tableroLleno) {
