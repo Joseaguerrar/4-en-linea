@@ -167,7 +167,7 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
     {
         tablero.mostrarTablero();
         cout<<"Se terminó el juego, es un empate! "<<endl;
-    }    
+    }
 }
 //Funciones para los datos//
 Tablero crearTablero(){
@@ -215,7 +215,7 @@ jugadorIAInteligente crearJugadorIA(int n){
 }
 string pedirNombre(int n){
     string nombre;
-    cout<<"Digite el nombre para Jugador"<< n<<": " <<endl;
+    cout<<"Digite el nombre para Jugador"<<n<<": " <<endl;
     cin>>nombre;
     return nombre;
 }
