@@ -18,15 +18,9 @@ endif()
 set(SRCS1
 # TODO: Agregar aquí los archivos fuente de su proyecto
     main.cpp
+    TableroFrame.cpp
     MenuFrame.cpp
     tablero.cpp
-<<<<<<< HEAD
-    TableroFrame.cpp
-    JuegoFrame.cpp
-)
-
-set(SRCS2
-=======
     jugadorIAInteligente.cpp
     jugadorHumano.cpp
     jugadorIAFacil.cpp
@@ -37,7 +31,6 @@ set(SRCS2
     jugadorIAInteligente.cpp
     jugadorHumano.cpp
     jugadorIAFacil.cpp
->>>>>>> main
     main2.cpp
 )
 
