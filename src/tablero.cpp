@@ -65,12 +65,6 @@ void Tablero::soltarFicha(int columna, Ficha ficha) {
 // Metodo que comprueba al ganador
 bool Tablero::comprobarGanador(Ficha ficha) {
   // Filas//
-  if (ficha == Ficha::Azul) {
-    victoriasFichaAzul++;
-  } else {
-    victoriasFichaRoja++;
-  }
-
   for (int i = 0; i < filas; ++i) {
     for (int j = 0; j < columnas - 3; ++j) {
       if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
@@ -107,8 +101,6 @@ bool Tablero::comprobarGanador(Ficha ficha) {
     }
   }
 
-  victoriasFichaAzul--;
-  victoriasFichaRoja--;
   return false;
 }
 
@@ -129,6 +121,7 @@ bool Tablero::comprobarEmpate() {
 // consola)
 void Tablero::mostrarTablero() {
   // Nuevo
+  cout<<endl;
   for (int i = 0; i < columnas; i++) {
     cout << i + 1 << " ";
   }
@@ -146,6 +139,12 @@ void Tablero::mostrarTablero() {
     }
     cout << endl;
   }
+}
+void Tablero::setvictoriasA(int n){
+  victoriasFichaAzul=n;
+}
+void Tablero::setvictoriasR(int n){
+  victoriasFichaRoja=n;
 }
 // Retorna el numero de victorias del jugador con fichas azules
 int Tablero::getVictoriasAzul() { return victoriasFichaAzul; }
