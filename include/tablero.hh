@@ -26,6 +26,8 @@ class Tablero {
   void reiniciarTablero();
   int getColumnas();
   int getFilas();
+  int getVictoriasAzul();
+  int getVictoriasRojas();
   vector<vector<Ficha>> getTablero();
 
  private:
@@ -34,6 +36,8 @@ class Tablero {
   void setTablero(vector<vector<Ficha>> tableroActual);
   int filas;
   int columnas;
+  int victoriasFichaRoja;
+  int victoriasFichaAzul;
 };
 
 #endif
