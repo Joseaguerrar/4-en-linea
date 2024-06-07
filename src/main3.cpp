@@ -145,6 +145,8 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
             {
                 tablero.mostrarTablero();
                 cout<<"Se terminó el juego, ganó: "<<jugador1.getNombre()<<endl;
+                //TO DO: Arreglar tema de las victorias
+                cout<<"Victorias de "<<jugador1.getNombre()<<": "<<tablero.getVictoriasAzul()<<endl;
                 break;
             }
             if (tablero.comprobarEmpate())
