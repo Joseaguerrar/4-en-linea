@@ -295,8 +295,6 @@ jugadorHumano crearJugadorH(int n){
     jugadorHumano jugador= jugadorHumano(nombre,ficha);
     return jugador;
 }
-
-//TODO: no hay return en todas las direcciones//ya
 jugadorIAFacil crearJugadorB(int n){
     Ficha ficha;
     string nombre=pedirNombre(n);
@@ -310,7 +308,6 @@ jugadorIAFacil crearJugadorB(int n){
     jugadorIAFacil jugador= jugadorIAFacil(nombre,ficha);
     return jugador;
 }
-//TODO: exista más de un tipo de IA, IAfácil e IAinteligente// ya
 jugadorIAInteligente crearJugadorIA(int n){
     Ficha ficha;
     string nombre=pedirNombre(n);
@@ -365,8 +362,6 @@ int seleccionColumna(){
     cin>>seleccion;
     return seleccion;
 }
-
-//use un throw, no siempre se va a enviar un número, y si se le manda un caracter?
 bool volveraJugar(){
     int opcion;
     cout<<"Quiere volver a jugar? "<<endl;
@@ -374,9 +369,10 @@ bool volveraJugar(){
      while (true) {
         cin >> opcion;
         if (cin.fail()) {
-            cin.clear(); // Limpiar el estado de error
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada incorrecta
-            throw invalid_argument("Entrada no válida: se esperaba un número.");
+            cin.clear();
+            // Limpiar el estado de error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            // Descartar la entrada incorrecta, pero no acepta flotantes
         }
         if (opcion >= 1 && opcion <= 2) {
             break;
