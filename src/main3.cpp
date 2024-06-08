@@ -93,7 +93,7 @@ void jugar() {
                 //crearIAyIA();
                 break;
             case 7:
-                return;// Volver al menú principal
+                return;// Volver al menú principal(no es return es break)
             default:
                 cout << "Opción no válida. Por favor, seleccione una opción válida." << endl;
                 break;
@@ -293,23 +293,26 @@ jugadorHumano crearJugadorH(int n){
        return jugador2;
     }
 }
+
+//TODO: no hay return en todas las direcciones
 jugadorIAFacil crearJugadorB(int n){
-    Ficha ficha;
+    Ficha ficha = Ficha::Rojo;
     string nombre=pedirNombre(n);
-    if (n=1)
+    if (n==1)
     {
-        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha=Ficha::Azul);
+        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
         return jugador1;
     }else if (n==2){
-        jugadorIAFacil jugador2= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
+        jugadorIAFacil jugador2= jugadorIAFacil(nombre,ficha);
        return jugador2;
     }
 }
+//TODO: exista más de un tipo de IA, IAfácil e IAinteligente
 jugadorIAInteligente crearJugadorIA(int n){
     Ficha ficha;
     string nombre=pedirNombre(n);
     int deep= pedirProfundidadIA();
-    if (n=1)
+    if (n==1)
     {
         jugadorIAInteligente jugador1= jugadorIAInteligente(nombre,ficha=Ficha::Azul,deep);
         return jugador1;
@@ -333,6 +336,8 @@ string pedirNombre(int n){
     }
     return nombre;
 }
+
+
 int pedirColumnas(){
     int columnas;
     cout<<"Digite la cantidad de columnas: "<<endl;
@@ -357,6 +362,8 @@ int seleccionColumna(){
     cin>>seleccion;
     return seleccion;
 }
+
+//use un throw, no siempre se va a enviar un número, y si se le manda un caracter?
 bool volveraJugar(){
     int opcion;
     cout<<"Quiere volver a jugar? "<<endl;
