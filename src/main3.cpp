@@ -4,6 +4,8 @@
 #include <jugadorIAFacil.hh>
 #include <jugadorIAInteligente.hh>
 #include <jugadorHumano.hh>
+#include <stdexcept>
+#include <limits>
 using namespace std;
 
 // Prototipos de las funciones
@@ -16,8 +18,8 @@ void crearByB();
 void crearByIA();
 void crearIAyIA();
 //Ciclos
-void CiclohumanoContraHumano(jugadorHumano,jugadorHumano,Tablero);//falta
-void CiclohumanoContraBot(jugadorHumano,jugadorIAFacil,Tablero);//falta
+void CiclohumanoContraHumano(jugadorHumano,jugadorHumano,Tablero);
+void CiclohumanoContraBot(jugadorHumano,jugadorIAFacil,Tablero);//falta corregir la ficha del bot
 void CiclohumanoContraIA(jugadorHumano,jugadorIAInteligente,Tablero);//falta
 void CiclobotContraBot(jugadorIAFacil,jugadorIAFacil,Tablero);//falta
 void CiclobotContraIA(jugadorIAFacil,jugadorIAInteligente,Tablero);//falta
@@ -286,40 +288,40 @@ jugadorHumano crearJugadorH(int n){
     string nombre=pedirNombre(n);
     if (n==1)
     {
-        jugadorHumano jugador1= jugadorHumano(nombre,ficha=Ficha::Azul);
-        return jugador1;
+        ficha=Ficha::Azul;
     }else if (n==2){
-        jugadorHumano jugador2= jugadorHumano(nombre,ficha=Ficha::Rojo);
-       return jugador2;
+        ficha=Ficha::Rojo;
     }
+    jugadorHumano jugador= jugadorHumano(nombre,ficha);
+    return jugador;
 }
 
-//TODO: no hay return en todas las direcciones
+//TODO: no hay return en todas las direcciones//ya
 jugadorIAFacil crearJugadorB(int n){
-    Ficha ficha = Ficha::Rojo;
+    Ficha ficha;
     string nombre=pedirNombre(n);
-    if (n==1)
+   if (n==1)
     {
-        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha);
-        return jugador1;
+        ficha=Ficha::Azul;
     }else if (n==2){
-        jugadorIAFacil jugador2= jugadorIAFacil(nombre,ficha);
-       return jugador2;
+        ficha=Ficha::Rojo;
     }
+    jugadorIAFacil jugador= jugadorIAFacil(nombre,ficha);
+    return jugador;
 }
-//TODO: exista más de un tipo de IA, IAfácil e IAinteligente
+//TODO: exista más de un tipo de IA, IAfácil e IAinteligente// ya
 jugadorIAInteligente crearJugadorIA(int n){
     Ficha ficha;
     string nombre=pedirNombre(n);
     int deep= pedirProfundidadIA();
     if (n==1)
     {
-        jugadorIAInteligente jugador1= jugadorIAInteligente(nombre,ficha=Ficha::Azul,deep);
-        return jugador1;
+        ficha=Ficha::Azul;
     }else if (n==2){
-        jugadorIAInteligente jugador2= jugadorIAInteligente(nombre,ficha=Ficha::Rojo,deep);
-       return jugador2;
+        ficha=Ficha::Rojo;
     }
+    jugadorIAInteligente jugador= jugadorIAInteligente(nombre,ficha,deep);
+    return jugador;
 }
 string pedirNombre(int n){
     string nombre;
@@ -368,15 +370,19 @@ bool volveraJugar(){
     int opcion;
     cout<<"Quiere volver a jugar? "<<endl;
     cout<<"Digite 1 para sí o 2 para no: "<<endl;
-    cin>>opcion;
-    while (opcion<1||opcion>2)
-    {
-        cout<<"Opción inválida, intente de nuevo: "<<endl;
-        cin>>opcion;
+     while (true) {
+        cin >> opcion;
+        if (cin.fail()) {
+            cin.clear(); // Limpiar el estado de error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada incorrecta
+            throw invalid_argument("Entrada no válida: se esperaba un número.");
+        }
+        if (opcion >= 1 && opcion <= 2) {
+            break;
+        } else {
+            cout << "Opción inválida, intente de nuevo: " << endl;
+        }
     }
-    if (opcion==1)
-    {
-        return true;
-    }
-    return false;
+
+    return opcion == 1;
 }
