@@ -95,7 +95,7 @@ void jugar() {
             case 7:
                 return;// Volver al menú principal
             default:
-                std::cout << "Opción no válida. Por favor, seleccione una opción válida." << endl;
+                cout << "Opción no válida. Por favor, seleccione una opción válida." << endl;
                 break;
         }
     }
