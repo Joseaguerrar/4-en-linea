@@ -10,7 +10,7 @@ class IJugador {
 public:
   virtual string getNombre() = 0;
   virtual Ficha getColorFicha() = 0;
-  virtual int seleccionarColumna(Tablero tableroActual) = 0;
+  virtual int seleccionarColumna(Tablero& tableroActual) = 0;
 };
 
 #endif
