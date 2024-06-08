@@ -24,6 +24,7 @@ void CiclobotContraIA(jugadorIAFacil,jugadorIAInteligente,Tablero);//falta
 void CicloIAContraIA(jugadorIAInteligente,jugadorIAInteligente,Tablero);//falta
 //Datos
 string pedirNombre(int);
+bool volveraJugar();
 int pedirColumnas();
 int pedirFilas();
 int seleccionColumna();
@@ -77,7 +78,7 @@ void jugar() {
                 crearHyH();
                 break;
             case 2:
-                //crearHyB();
+                crearHyB();
                 break;
             case 3:
                 //crearHyIA();
@@ -94,7 +95,7 @@ void jugar() {
             case 7:
                 return;// Volver al menú principal
             default:
-                cout << "Opción no válida. Por favor, seleccione una opción válida." << endl;
+                std::cout << "Opción no válida. Por favor, seleccione una opción válida." << endl;
                 break;
         }
     }
@@ -106,7 +107,7 @@ void crearHyH(){
     Tablero tablero= crearTablero();
     CiclohumanoContraHumano(jugador1,jugador2,tablero);
 }
-/*void crearHyB(){
+void crearHyB(){
     jugadorHumano jugador1= crearJugadorH(1);
     jugadorIAFacil jugador2=crearJugadorB(2);
     Tablero tablero= crearTablero();
@@ -134,28 +135,41 @@ void crearIAyIA(){
 }
 */ //Ciclos//
 void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Tablero tablero){
-    int columna, victoriasA=0,victoriasR=0;
-    tablero.setvictoriasA(victoriasA);
-    tablero.setvictoriasR(victoriasR);
-    tablero.mostrarTablero();
+    int columna; 
+    tablero.setvictoriasA(0); 
+    tablero.setvictoriasR(0);
+    cout<<"¡Que gane el mejor!"<<endl; 
         while (!tablero.comprobarEmpate())
         {
+            tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
             columna=jugador1.seleccionarColumna(tablero);
             tablero.soltarFicha(columna,jugador1.getColorFicha());
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {
                 tablero.mostrarTablero();
-                victoriasA++;
-                tablero.setvictoriasA(victoriasA);
-                cout<<"Se terminó el juego, ganó: "<<jugador1.getNombre()<<endl;
-                //TO DO: Arreglar tema de las victorias
-                cout<<"Victorias de "<<jugador1.getNombre()<<": "<<tablero.getVictoriasAzul()<<endl;
-                break;
+                cout<<"Ganó: "<<jugador1.getNombre()<<", ¡Se terminó el juego!"<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
             }
             if (tablero.comprobarEmpate())
             {
-                break;
+                tablero.mostrarTablero();
+                cout<<"Se terminó el juego, es un empate! "<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
             }
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador2.getNombre()<<endl; 
@@ -164,21 +178,101 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
             if (tablero.comprobarGanador(jugador2.getColorFicha()))
             {
                 tablero.mostrarTablero();
-                victoriasR++;
-                tablero.setvictoriasR(victoriasR);
-                cout<<"Se terminó el juego, ganó: "<<jugador2.getNombre()<<endl;
-                cout<<"Victorias de "<<jugador2.getNombre()<<": "<<tablero.getVictoriasRojas()<<endl;
-                break;
+                cout<<"Ganó: "<<jugador2.getNombre()<<", ¡Se terminó el juego!"<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
+                
+            }
+            if (tablero.comprobarEmpate())
+            {
+                tablero.mostrarTablero();
+                cout<<"Se terminó el juego, es un empate! "<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
+            }
+        }
+}
+void CiclohumanoContraBot(jugadorHumano jugador1,jugadorIAFacil jugador2,Tablero tablero){
+    int columna; 
+    tablero.setvictoriasA(0); 
+    tablero.setvictoriasR(0);
+    cout<<"¡Que gane el mejor!"<<endl; 
+        while (!tablero.comprobarEmpate())
+        {
+            tablero.mostrarTablero();
+            cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
+            columna=jugador1.seleccionarColumna(tablero);
+            tablero.soltarFicha(columna,jugador1.getColorFicha());
+            if (tablero.comprobarGanador(jugador1.getColorFicha()))
+            {
+                tablero.mostrarTablero();
+                cout<<"Ganó: "<<jugador1.getNombre()<<", ¡Se terminó el juego!"<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
+            }
+            if (tablero.comprobarEmpate())
+            {
+                tablero.mostrarTablero();
+                cout<<"Se terminó el juego, es un empate! "<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
             }
             tablero.mostrarTablero();
+            cout<<"Turno de: "<<jugador2.getNombre()<<endl; 
+            columna=jugador2.seleccionarColumna(tablero);
+            tablero.soltarFicha(columna,jugador2.getColorFicha());
+            if (tablero.comprobarGanador(jugador2.getColorFicha()))
+            {
+                tablero.mostrarTablero();
+                cout<<"Ganó: "<<jugador2.getNombre()<<", ¡Se terminó el juego!"<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
+                
+            }
+            if (tablero.comprobarEmpate())
+            {
+                tablero.mostrarTablero();
+                cout<<"Se terminó el juego, es un empate! "<<endl;
+                cout<<"Marcador Global: "<<endl;
+                cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
+                if (volveraJugar()){
+                    tablero.reiniciarTablero();
+                }
+                else{
+                    break;
+                }
+            }
         }
-    if (tablero.comprobarEmpate())
-    {
-        tablero.mostrarTablero();
-        cout<<"Se terminó el juego, es un empate! "<<endl;
-        cout<<"Marcador Global: "<<endl;
-        cout<<jugador1.getNombre()<<" : "<<tablero.getVictoriasAzul()<<" "<<jugador2.getNombre()<<" : "<<tablero.getVictoriasRojas()<<endl;
-    }
 }
 //Funciones para los datos//
 Tablero crearTablero(){
@@ -204,12 +298,12 @@ jugadorIAFacil crearJugadorB(int n){
     string nombre=pedirNombre(n);
     if (n=1)
     {
-        ficha= Ficha::Azul;
-    }else{
-        ficha=Ficha::Rojo;
+        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
+        return jugador1;
+    }else if (n==2){
+        jugadorIAFacil jugador2= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
+       return jugador2;
     }
-    jugadorIAFacil jugador= jugadorIAFacil(nombre,ficha);
-    return jugador;
 }
 jugadorIAInteligente crearJugadorIA(int n){
     Ficha ficha;
@@ -226,8 +320,17 @@ jugadorIAInteligente crearJugadorIA(int n){
 }
 string pedirNombre(int n){
     string nombre;
-    cout<<"Digite el nombre para Jugador"<<n<<": " <<endl;
-    cin>>nombre;
+    switch (n)
+    {
+    case 1:
+        cout<<"Digite el nombre para Jugador"<<n<<"-(X): " <<endl;
+        cin>>nombre;
+    break;
+    case 2:
+        cout<<"Digite el nombre para Jugador"<<n<<"-(O): " <<endl;
+        cin>>nombre;
+    break;
+    }
     return nombre;
 }
 int pedirColumnas(){
@@ -253,4 +356,20 @@ int seleccionColumna(){
     cout<<"Seleccione una columna: "<<endl;
     cin>>seleccion;
     return seleccion;
+}
+bool volveraJugar(){
+    int opcion;
+    cout<<"Quiere volver a jugar? "<<endl;
+    cout<<"Digite 1 para sí o 2 para no: "<<endl;
+    cin>>opcion;
+    while (opcion<1||opcion>2)
+    {
+        cout<<"Opción inválida, intente de nuevo: "<<endl;
+        cin>>opcion;
+    }
+    if (opcion==1)
+    {
+        return true;
+    }
+    return false;
 }

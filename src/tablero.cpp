@@ -69,6 +69,14 @@ bool Tablero::comprobarGanador(Ficha ficha) {
     for (int j = 0; j < columnas - 3; ++j) {
       if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
           tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
+            if (ficha==Ficha::Azul)
+            {
+              setvictoriasA(getVictoriasAzul()+1);
+            }
+            else if (ficha==Ficha::Rojo)
+            {
+              setvictoriasR(getVictoriasRojas()+1);
+            } 
         return true;
       }
     }
@@ -78,6 +86,14 @@ bool Tablero::comprobarGanador(Ficha ficha) {
     for (int j = 0; j < columnas; ++j) {
       if (tablero[i][j] == ficha && tablero[i + 1][j] == ficha &&
           tablero[i + 2][j] == ficha && tablero[i + 3][j] == ficha) {
+             if (ficha==Ficha::Azul)
+            {
+              setvictoriasA(getVictoriasAzul()+1);
+            }
+            else if (ficha==Ficha::Rojo)
+            {
+              setvictoriasR(getVictoriasRojas()+1);
+            } 
         return true;
       }
     }
@@ -87,6 +103,14 @@ bool Tablero::comprobarGanador(Ficha ficha) {
     for (int j = 0; j < columnas - 3; ++j) {
       if (tablero[i][j] == ficha && tablero[i + 1][j + 1] == ficha &&
           tablero[i + 2][j + 2] == ficha && tablero[i + 3][j + 3] == ficha) {
+             if (ficha==Ficha::Azul)
+            {
+              setvictoriasA(getVictoriasAzul()+1);
+            }
+            else if (ficha==Ficha::Rojo)
+            {
+              setvictoriasR(getVictoriasRojas()+1);
+            } 
         return true;
       }
     }
@@ -96,6 +120,14 @@ bool Tablero::comprobarGanador(Ficha ficha) {
     for (int j = 3; j < columnas; ++j) {
       if (tablero[i][j] == ficha && tablero[i + 1][j - 1] == ficha &&
           tablero[i + 2][j - 2] == ficha && tablero[i + 3][j - 3] == ficha) {
+             if (ficha==Ficha::Azul)
+            {
+              setvictoriasA(getVictoriasAzul()+1);
+            }
+            else if (ficha==Ficha::Rojo)
+            {
+              setvictoriasR(getVictoriasRojas()+1);
+            } 
         return true;
       }
     }
@@ -123,18 +155,18 @@ void Tablero::mostrarTablero() {
   // Nuevo
   cout<<endl;
   for (int i = 0; i < columnas; i++) {
-    cout << i + 1 << " ";
+    cout<< " " << i + 1 << " ";
   }
   cout << endl;
   // Nuevo
   for (int i = 0; i < filas; i++) {
     for (int j = 0; j < columnas; j++) {
       if (tablero[i][j] == Ficha::Rojo) {
-        cout << 'R' << " ";
+        cout << "|O|";
       } else if (tablero[i][j] == Ficha::Azul) {
-        cout << 'A' << " ";
+        cout << "|X|";
       } else {
-        cout << '_' << " ";
+        cout << "|_|";
       }
     }
     cout << endl;
