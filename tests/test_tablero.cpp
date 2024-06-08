@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+
 #include <tablero.hh>
 
 TEST(pruebaTablero, constructor) {
@@ -54,7 +55,7 @@ TEST(pruebaTablero, puedeTirar2) {
 
 TEST(pruebaTablero, fueraRango) {
   Tablero tablero(5, 5);
-  EXPECT_THROW(tablero.puedeTirar(6), invalid_argument);
+  EXPECT_FALSE(tablero.puedeTirar(6));
 }
 
 TEST(pruebaTablero, tableroLleno) {
@@ -147,7 +148,7 @@ TEST(pruebaTablero, copiaCorrectamenteCreada) {
   }
 }
 
-TEST(pruebaTablero, reiniciarTablero){
+TEST(pruebaTablero, reiniciarTablero) {
   Tablero tablero(4, 4);
   tablero.soltarFicha(3, Ficha::Rojo);
   tablero.soltarFicha(3, Ficha::Rojo);
