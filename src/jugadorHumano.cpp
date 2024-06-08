@@ -14,14 +14,23 @@ string jugadorHumano::getNombre() { return nombre; }
 Ficha jugadorHumano::getColorFicha() { return colorFicha; }
 
 int jugadorHumano::seleccionarColumna(Tablero& tableroActual) {
-  int columnaSeleccionada = tableroActual.getColumnas();
-  cout << "Ingrese la columna donde desea soltar la ficha: " << endl;
-  cin >> columnaSeleccionada;
-  columnaSeleccionada--;
-  while (!tableroActual.puedeTirar(columnaSeleccionada)) {
-    cout << "La colummna seleccionada no es válida, ingrese otra: " << endl;
-    cin >> columnaSeleccionada;
-    columnaSeleccionada--;
-  }
-  return columnaSeleccionada;
+  int columnaSeleccionada;
+    cout << "Ingrese la columna donde desea soltar la ficha: " << endl;
+    while (true) {
+        cin >> columnaSeleccionada;
+        if (cin.fail()) {
+            cin.clear(); // Limpiar el estado de error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada incorrecta
+            cout << "Entrada inválida, por favor ingrese un número entero: " << endl;
+        } else {
+            columnaSeleccionada--; // Ajustar para el índice basado en 0
+            if (tableroActual.puedeTirar(columnaSeleccionada)) {
+                break; // Salir del bucle si la columna es válida
+            } else {
+                cout << "La columna seleccionada no es válida, ingrese otra: " << endl;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpiar cualquier entrada extraña
+            }
+        }
+    }
+    return columnaSeleccionada;
 }
