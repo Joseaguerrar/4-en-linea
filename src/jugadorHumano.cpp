@@ -1,16 +1,17 @@
 #include <IJugador.hh>
-#include <jugadorHumano.hh>
-#include <string>
 #include <iostream>
+#include <jugadorHumano.hh>
 #include <random>
+#include <string>
 
 using namespace std;
-jugadorHumano::jugadorHumano(){}
-jugadorHumano::jugadorHumano(string Nombre, Ficha ColorFicha): nombre(Nombre), colorFicha(ColorFicha){}
+jugadorHumano::jugadorHumano() {}
+jugadorHumano::jugadorHumano(string Nombre, Ficha ColorFicha)
+    : nombre(Nombre), colorFicha(ColorFicha) {}
 
-string jugadorHumano::getNombre(){return nombre;}
+string jugadorHumano::getNombre() { return nombre; }
 
-Ficha jugadorHumano::getColorFicha(){return colorFicha;}
+Ficha jugadorHumano::getColorFicha() { return colorFicha; }
 
 
 int jugadorHumano::seleccionarColumna(Tablero tableroActual){

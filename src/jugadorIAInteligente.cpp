@@ -9,23 +9,19 @@
 
 using namespace std;
 
-jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha, int Profundidad)
-    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad){
-  if (ColorFicha == Ficha::Azul) {
-    colorFichaMin = Ficha::Rojo;
-  } else {
-    colorFichaMin = Ficha::Azul;
-  }
+jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha,
+                                           int Profundidad)
+    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad),colorFichaMin((ColorFicha == Ficha::Azul) ? Ficha::Rojo : Ficha::Azul){
+  
 }
 
 string jugadorIAInteligente::getNombre() { return nombre; }
 
 Ficha jugadorIAInteligente::getColorFicha() { return colorFichaMax; }
 
-int jugadorIAInteligente::seleccionarColumna(Tablero tableroActual) {
+int jugadorIAInteligente::seleccionarColumna(Tablero& tableroActual) {
   // TODO: agregar throw para manejar la excepción, igual si llega a este punto
   // el tablero debería estar lleno
-  cout << minimax(tableroActual, profundidad, false).second << endl;
   return minimax(tableroActual, profundidad, false).second;
 }
 
@@ -34,7 +30,7 @@ pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
   int mejorColumna = 0;
   if (profundidad == 0 || tableroActual.comprobarGanador(colorFichaMax) ||
       tableroActual.comprobarGanador(colorFichaMin)) {
-    return make_pair(distanciaHeuristica(tableroActual), mejorColumna);
+    return make_pair(funcionHeuristica(tableroActual), mejorColumna);
   }
 
   if (max) {
@@ -68,7 +64,7 @@ pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
   }
 }
 
-int jugadorIAInteligente::distanciaHeuristica(Tablero& tableroCopia) {
+int jugadorIAInteligente::funcionHeuristica(Tablero& tableroCopia) {
   // comprueba si MAX ganó o MIN y retorna un valor de acuerdo a eso
 
   if (tableroCopia.comprobarGanador(colorFichaMax)) {
@@ -77,5 +73,9 @@ int jugadorIAInteligente::distanciaHeuristica(Tablero& tableroCopia) {
     return -1000;
   }
   // TODO: se debe de cambiar este último return por algo "más específico"
-  return 1000;
+  return -1000;
 }
+
+int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool isMax){
+  int lineasGanadoras = 0
+  }
