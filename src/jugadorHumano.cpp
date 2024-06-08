@@ -24,5 +24,5 @@ int jugadorHumano::seleccionarColumna(Tablero& tableroActual) {
     cout << "La colummna seleccionada no es válida, ingrese otra: " << endl;
     cin >> columnaSeleccionada;
   }
-  return columnaSeleccionada;
+  return columnaSeleccionada-1;
 }

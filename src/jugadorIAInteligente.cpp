@@ -77,5 +77,5 @@ int jugadorIAInteligente::funcionHeuristica(Tablero& tableroCopia) {
 }
 
 int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool isMax){
-  int lineasGanadoras = 0
+  int lineasGanadoras = 0;
   }
