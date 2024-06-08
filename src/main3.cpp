@@ -286,19 +286,19 @@ jugadorHumano crearJugadorH(int n){
     string nombre=pedirNombre(n);
     if (n==1)
     {
-        ficha= Ficha::Azul;
+        jugadorHumano jugador1= jugadorHumano(nombre,ficha=Ficha::Azul);
+        return jugador1;
     }else if (n==2){
-        ficha=Ficha::Rojo;
+        jugadorHumano jugador2= jugadorHumano(nombre,ficha=Ficha::Rojo);
+       return jugador2;
     }
-    jugadorHumano jugador= jugadorHumano(nombre,ficha);
-    return jugador;
 }
 jugadorIAFacil crearJugadorB(int n){
     Ficha ficha;
     string nombre=pedirNombre(n);
     if (n=1)
     {
-        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
+        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha=Ficha::Azul);
         return jugador1;
     }else if (n==2){
         jugadorIAFacil jugador2= jugadorIAFacil(nombre,ficha=Ficha::Rojo);
@@ -311,12 +311,12 @@ jugadorIAInteligente crearJugadorIA(int n){
     int deep= pedirProfundidadIA();
     if (n=1)
     {
-        ficha= Ficha::Azul;
-    }else{
-        ficha=Ficha::Rojo;
+        jugadorIAInteligente jugador1= jugadorIAInteligente(nombre,ficha=Ficha::Azul,deep);
+        return jugador1;
+    }else if (n==2){
+        jugadorIAInteligente jugador2= jugadorIAInteligente(nombre,ficha=Ficha::Rojo,deep);
+       return jugador2;
     }
-    jugadorIAInteligente jugador= jugadorIAInteligente(nombre,ficha,deep);
-    return jugador;
 }
 string pedirNombre(int n){
     string nombre;
