@@ -11,7 +11,7 @@ using namespace std;
 
 jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha,
                                            int Profundidad)
-    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad),colorFichaMin((ColorFicha == Ficha::Azul) ? Ficha::Rojo : Ficha::Azul){
+    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad), colorFichaMin((ColorFicha == Ficha::Azul) ? Ficha::Rojo : Ficha::Azul){
   
 }
 
@@ -73,9 +73,9 @@ int jugadorIAInteligente::funcionHeuristica(Tablero& tableroCopia) {
     return -1000;
   }
   // TODO: se debe de cambiar este último return por algo "más específico"
-  return -1000;
+  return determinarLineasGanadoras(tableroCopia, true) - determinarLineasGanadoras(tableroCopia, false);
 }
 
 int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool isMax){
-  int lineasGanadoras = 0;
+  int lineasGanadoras = 0
   }

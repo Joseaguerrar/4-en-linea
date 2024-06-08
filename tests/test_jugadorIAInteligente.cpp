@@ -86,7 +86,7 @@ TEST(pruebaIAInteligente, casoTresDiagonaGanadorl){
     tablero.soltarFicha(2,Ficha::Rojo);
     tablero.soltarFicha(2,Ficha::Azul);
     tablero.soltarFicha(3,Ficha::Azul);
-    jugadorIAInteligente bot("jugador1", Ficha::Azul, 3);
+    jugadorIAInteligente bot("jugador1", Ficha::Azul, 5);
     cout<< bot.seleccionarColumna(tablero) << endl;
     EXPECT_EQ( bot.seleccionarColumna(tablero), 3);
 }
