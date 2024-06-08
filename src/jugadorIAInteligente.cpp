@@ -11,7 +11,7 @@ using namespace std;
 
 jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha,
                                            int Profundidad)
-    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad),colorFichaMin((ColorFicha == Ficha::Azul) ? Ficha::Rojo : Ficha::Azul){
+    : nombre(Nombre), colorFichaMax(ColorFicha), profundidad(Profundidad), colorFichaMin((ColorFicha == Ficha::Azul) ? Ficha::Rojo : Ficha::Azul){
   
 }
 
@@ -73,9 +73,54 @@ int jugadorIAInteligente::funcionHeuristica(Tablero& tableroCopia) {
     return -1000;
   }
   // TODO: se debe de cambiar este último return por algo "más específico"
-  return -1000;
+  return determinarLineasGanadoras(tableroCopia, true) - determinarLineasGanadoras(tableroCopia, false);
 }
 
 int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool isMax){
-  int lineasGanadoras = 0;
+  Ficha ficha;
+  if(isMax){
+    ficha = colorFichaMax;
+  }else{
+    ficha = colorFichaMin;
   }
+  int lineasGanadoras = 0;
+  int filas = tableroCopia.getFilas();
+  int columnas = tableroCopia.getColumnas();
+  vector<vector<Ficha>> tablero = tableroCopia.getTablero();
+  for (int i = 0; i < filas; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
+          tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  // Columnas//
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 0; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j] == ficha &&
+          tablero[i + 2][j] == ficha && tablero[i + 3][j] == ficha) {
+        lineasGanadoras++;;
+      }
+    }
+  }
+  // Diagonal Derecha
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j + 1] == ficha &&
+          tablero[i + 2][j + 2] == ficha && tablero[i + 3][j + 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  // Diagonal Izquierda
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 3; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j - 1] == ficha &&
+          tablero[i + 2][j - 2] == ficha && tablero[i + 3][j - 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  return lineasGanadoras;
+}
