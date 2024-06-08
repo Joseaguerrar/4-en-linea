@@ -112,6 +112,7 @@ bool Tablero::comprobarGanador(Ficha ficha) {
 
   victoriasFichaAzul--;
   victoriasFichaRoja--;
+  
   return false;
 }
 
