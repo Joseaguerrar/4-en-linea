@@ -19,7 +19,7 @@ class jugadorIAInteligente : public IJugador {
   int seleccionarColumna(Tablero& tableroActual);
 
  private:
-  pair<int, int> minimax(Tablero& tableroActual, int profundidad, bool max);
+  pair<int, int> minimax(Tablero& tableroActual, int profundidad,int alfa,int beta, bool max);
   // TODO: de momento no está bien implementada
   int determinarLineasGanadoras(Tablero& tableroCopia, bool isMax);
   int funcionHeuristica(Tablero& tableroCopia);
