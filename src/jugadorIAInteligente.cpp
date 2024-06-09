@@ -6,6 +6,7 @@
 #include <string>
 #include <tablero.hh>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -22,45 +23,55 @@ Ficha jugadorIAInteligente::getColorFicha() { return colorFichaMax; }
 int jugadorIAInteligente::seleccionarColumna(Tablero& tableroActual) {
   // TODO: agregar throw para manejar la excepción, igual si llega a este punto
   // el tablero debería estar lleno
-  return minimax(tableroActual, profundidad, false).second;
+  int menosInfinito = numeric_limits<int>::min();
+  int masInfinito = numeric_limits<int>::max();
+  return minimax(tableroActual, profundidad,menosInfinito,masInfinito,true).second;
 }
 
 pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
-                                             int profundidad, bool max) {
-  int mejorColumna = 0;
+                                             int profundidad, int alfa, int beta, bool max) {
+  int mejorColumna = -1;  // Inicializamos a un valor no válido
   if (profundidad == 0 || tableroActual.comprobarGanador(colorFichaMax) ||
       tableroActual.comprobarGanador(colorFichaMin)) {
     return make_pair(funcionHeuristica(tableroActual), mejorColumna);
   }
 
   if (max) {
-    int valorOptimo = -1000000;
+    int valor = numeric_limits<int>::min();
     for (int j = 0; j < tableroActual.getColumnas(); j++) {
       if (tableroActual.puedeTirar(j)) {
         Tablero tableroCopia = tableroActual;
         tableroCopia.soltarFicha(j, colorFichaMax);
-        int valor = minimax(tableroCopia, profundidad - 1, false).first;
-        if (valor > valorOptimo) {
-          valorOptimo = valor;
+        int valorActual = minimax(tableroCopia, profundidad - 1, alfa, beta, false).first;
+        if (valorActual > valor) {
+          valor = valorActual;
           mejorColumna = j;
+        }
+        alfa = std::max(alfa, valor);
+        if (alfa >= beta) {
+          break;  // Poda beta
         }
       }
     }
-    return make_pair(valorOptimo, mejorColumna);
+    return make_pair(valor, mejorColumna);
   } else {
-    int valorOptimo = 1000000;
+    int valor = numeric_limits<int>::max();
     for (int j = 0; j < tableroActual.getColumnas(); j++) {
       if (tableroActual.puedeTirar(j)) {
         Tablero tableroCopia = tableroActual;
         tableroCopia.soltarFicha(j, colorFichaMin);
-        int valor = minimax(tableroCopia, profundidad - 1, true).first;
-        if (valor < valorOptimo) {
-          valorOptimo = valor;
+        int valorActual = minimax(tableroCopia, profundidad - 1, alfa, beta, true).first;
+        if (valorActual < valor) {
+          valor = valorActual;
           mejorColumna = j;
+        }
+        beta = std::min(beta, valor);
+        if (alfa >= beta) {
+          break;  // Poda alfa
         }
       }
     }
-    return make_pair(valorOptimo, mejorColumna);
+    return make_pair(valor, mejorColumna);
   }
 }
 

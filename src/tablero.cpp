@@ -10,8 +10,9 @@ using namespace std;
 Tablero::Tablero(int filas, int columnas)
     : tablero(filas, vector<Ficha>(columnas, Ficha::Vacio)),
       filas(filas),
-      columnas(columnas) {}
-
+      columnas(columnas),
+      victoriasFichaAzul(0),
+      victoriasFichaRoja(0) {}
 // Metodo que devuelve el tablero actual
 vector<vector<Ficha>> Tablero::getTablero() { return tablero; }
 
