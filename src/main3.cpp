@@ -142,7 +142,16 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
         {
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
-            columna=jugador1.seleccionarColumna(tablero);
+            //excepciones del jugador humano
+            bool columnaValida = false;
+            while(!columnaValida){
+                try{
+                    columna=jugador1.seleccionarColumna(tablero);
+                    columnaValida = true;
+                }catch(runtime_error e){
+                 cout << e.what() << endl;
+                }
+            }
             tablero.soltarFicha(columna,jugador1.getColorFicha());
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {
@@ -172,7 +181,16 @@ void CiclohumanoContraHumano(jugadorHumano jugador1,jugadorHumano jugador2,Table
             }
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador2.getNombre()<<endl; 
-            columna=jugador2.seleccionarColumna(tablero);
+            //excepciones del jugador humano
+            columnaValida = false;
+            while(!columnaValida){
+                try{
+                    columna=jugador2.seleccionarColumna(tablero);
+                    columnaValida = true;
+                }catch(runtime_error e){
+                 cout << e.what() << endl;
+                }
+            }
             tablero.soltarFicha(columna,jugador2.getColorFicha());
             if (tablero.comprobarGanador(jugador2.getColorFicha()))
             {
@@ -212,7 +230,16 @@ void CiclohumanoContraBot(jugadorHumano jugador1,jugadorIAFacil jugador2,Tablero
         {
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
-            columna=jugador1.seleccionarColumna(tablero);
+            //para capturar las posibles excepciones que puede tener el jugador Humano
+            bool columnaValida = false;
+            while(!columnaValida){
+                try{
+                    columna=jugador1.seleccionarColumna(tablero);
+                    columnaValida = true;
+                }catch(runtime_error e){
+                 cout << e.what() << endl;
+                }
+            }
             tablero.soltarFicha(columna,jugador1.getColorFicha());
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {
@@ -282,7 +309,16 @@ void CiclohumanoContraIA(jugadorHumano jugador1,jugadorIAInteligente jugador2,Ta
         {
             tablero.mostrarTablero();
             cout<<"Turno de: "<<jugador1.getNombre()<<endl; 
-            columna=jugador1.seleccionarColumna(tablero);
+            //excepciones del jugador humano 
+            bool columnaValida = false;
+            while(!columnaValida){
+                try{
+                    columna=jugador1.seleccionarColumna(tablero);
+                    columnaValida = true;
+                }catch(runtime_error e){
+                 cout << e.what() << endl;
+                }
+            }
             tablero.soltarFicha(columna,jugador1.getColorFicha());
             if (tablero.comprobarGanador(jugador1.getColorFicha()))
             {

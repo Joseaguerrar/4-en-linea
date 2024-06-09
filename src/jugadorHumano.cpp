@@ -1,9 +1,7 @@
 #include <IJugador.hh>
 #include <iostream>
 #include <jugadorHumano.hh>
-#include <random>
 #include <string>
-
 using namespace std;
 jugadorHumano::jugadorHumano() {}
 jugadorHumano::jugadorHumano(string Nombre, Ficha ColorFicha)
@@ -14,23 +12,25 @@ string jugadorHumano::getNombre() { return nombre; }
 Ficha jugadorHumano::getColorFicha() { return colorFicha; }
 
 int jugadorHumano::seleccionarColumna(Tablero& tableroActual) {
-  int columnaSeleccionada;
-    cout << "Ingrese la columna donde desea soltar la ficha: " << endl;
-    while (true) {
-        cin >> columnaSeleccionada;
-        if (cin.fail()) {
-            cin.clear(); // Limpiar el estado de error
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada incorrecta
-            cout << "Entrada inválida, por favor ingrese un número entero: " << endl;
-        } else {
-            columnaSeleccionada--; // Ajustar para el índice basado en 0
-            if (tableroActual.puedeTirar(columnaSeleccionada)) {
-                break; // Salir del bucle si la columna es válida
-            } else {
-                cout << "La columna seleccionada no es válida, ingrese otra: " << endl;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpiar cualquier entrada extraña
-            }
-        }
+  string entradaUsuario;
+  int controlIteraciones = 0;
+  cout << "Ingrese la columna donde desea soltar la ficha: " << endl;
+  cin >> entradaUsuario;
+
+  // se comprueba que la entrada del usuario no contenga letras, es decir que
+  // solamente contenga números
+  for (int i = 0; i < entradaUsuario.length(); i++) {
+    if (!(entradaUsuario[i] >= '0' && entradaUsuario[i] <= '9')) {
+      throw runtime_error(
+          "No puede ingresar nada que no sea un número, solamente números, pruebe de nuevo: ");
     }
-    return columnaSeleccionada;
+  }
+
+  // luego de comprobar que la entrada del usuario no contenga nada que no sea
+  // un número entero, se comprueba que la columna seleccionada esté disponible
+  int columnaSeleccionada = stoi(entradaUsuario) - 1;
+  if (!tableroActual.puedeTirar(columnaSeleccionada)) {
+    throw runtime_error("Número de columna inválida, seleccione otra: ");
+  }
+  return columnaSeleccionada;
 }
