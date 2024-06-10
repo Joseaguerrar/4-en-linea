@@ -39,6 +39,21 @@ Clase JugadorIAInteligente:
 Clase MenuFrame:
 Clase TableroFrame:
     La funcionalidad de dibujarTablero fue implementada por Aarón Arce, esta funcionalidad permite dibujar el tablero en una ventana aparte del menú de la interfaz.
-    
+    También la funcionalidad del evento del mouse con el click izquierdo para dibujar la ficha en la columna presionada fue implementada por Aarón Arce.
 Clase main:
 Clase main3:
+
+iv.
+#Si no da tiempo, añadir que no se pudo terminar de implementar la interfaz :c
+
+v. Algunos errores conocidos son los siguientes:
+    1. Error de si el jugadorHumano ingresa algo que no sea un número, el programa lanzará una excepción de error que vuelva a ingresar un numero.
+    2. Si una columna está llena y el jugador quiere ingresar una ficha en dicha columna, el programa lanzará una excepción de que el movimiento es inválido y le solicitará al usuario que digite una nueva columna..
+    3. Si el jugadorHumano quiere ingresar una columna fuera del rango de la cantidad de columnas previamente dicho, el programa lanzará una excepcion de que el movimiento es inválido y le solicitará al usuario que digite una nueva columna.
+
+vi. Para ejecutar las pruebas se deben seguir los siguientes comandos:
+    1. cd build/tests
+    2. ctest
+    o
+    2. ./unit_tests
+
