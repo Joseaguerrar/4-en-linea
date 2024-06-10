@@ -23,9 +23,20 @@ Ficha jugadorIAInteligente::getColorFicha() { return colorFichaMax; }
 int jugadorIAInteligente::seleccionarColumna(Tablero& tableroActual) {
   // TODO: agregar throw para manejar la excepción, igual si llega a este punto
   // el tablero debería estar lleno
+  if(columnasDisponibles(tableroActual) > 1){
   int menosInfinito = numeric_limits<int>::min();
   int masInfinito = numeric_limits<int>::max();
   return minimax(tableroActual, profundidad,menosInfinito,masInfinito,true).second;
+  }
+  else{
+    int columnaSeleccionada = 0;
+    for(int i = 0; i < tableroActual.getColumnas(); i++){
+      if(tableroActual.puedeTirar(i)){
+        columnaSeleccionada = i;
+      }
+    }
+    return columnaSeleccionada;
+  }
 }
 
 pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
@@ -134,4 +145,14 @@ int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool 
     }
   }
   return lineasGanadoras;
+}
+
+int jugadorIAInteligente::columnasDisponibles(Tablero& tableroCopia){
+  int columnasDisponibles = 0;
+  for(int i = 0; i < tableroCopia.getColumnas(); i++){
+    if(tableroCopia.puedeTirar(i)){
+      columnasDisponibles++;
+    }
+  }
+  return columnasDisponibles;
 }
