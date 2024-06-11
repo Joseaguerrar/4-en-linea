@@ -51,7 +51,6 @@ pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
     int valor = numeric_limits<int>::min();
     for (int j = 0; j < tableroActual.getColumnas(); j++) {
       if (tableroActual.puedeTirar(j)) {
-        cout << j << endl;
         Tablero tableroCopia = tableroActual;
         tableroCopia.soltarFicha(j, colorFichaMax);
         int valorActual = minimax(tableroCopia, profundidad - 1, alfa, beta, false).first;
