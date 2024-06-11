@@ -7,7 +7,7 @@
 #include <tablero.hh>
 #include <vector>
 #include <limits>
-
+//TODO: dejar el código bien comentado
 using namespace std;
 
 jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha,
