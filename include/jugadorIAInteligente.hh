@@ -23,6 +23,7 @@ class jugadorIAInteligente : public IJugador {
   // TODO: de momento no está bien implementada
   int determinarLineasGanadoras(Tablero& tableroCopia, bool isMax);
   int funcionHeuristica(Tablero& tableroCopia);
+  int columnasDisponibles(Tablero& tableroCopia);
   string nombre;
   int profundidad;
   Ficha colorFichaMax;

@@ -623,8 +623,7 @@ jugadorIAFacil crearJugadorB(int n){
     string nombre=pedirNombre(n);
    if (n==1)
     {
-        jugadorIAFacil jugador1= jugadorIAFacil(nombre,ficha);
-        return jugador1;
+        ficha=Ficha::Azul;
     }else if (n==2){
         ficha=Ficha::Rojo;
     }

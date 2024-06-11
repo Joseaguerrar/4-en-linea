@@ -7,7 +7,7 @@
 #include <tablero.hh>
 #include <vector>
 #include <limits>
-
+//TODO: dejar el código bien comentado
 using namespace std;
 
 jugadorIAInteligente::jugadorIAInteligente(string Nombre, Ficha ColorFicha,
@@ -23,9 +23,20 @@ Ficha jugadorIAInteligente::getColorFicha() { return colorFichaMax; }
 int jugadorIAInteligente::seleccionarColumna(Tablero& tableroActual) {
   // TODO: agregar throw para manejar la excepción, igual si llega a este punto
   // el tablero debería estar lleno
+  if(columnasDisponibles(tableroActual) > 1){
   int menosInfinito = numeric_limits<int>::min();
   int masInfinito = numeric_limits<int>::max();
   return minimax(tableroActual, profundidad,menosInfinito,masInfinito,true).second;
+  }
+  else{
+    int columnaSeleccionada = 0;
+    for(int i = 0; i < tableroActual.getColumnas(); i++){
+      if(tableroActual.puedeTirar(i)){
+        columnaSeleccionada = i;
+      }
+    }
+    return columnaSeleccionada;
+  }
 }
 
 pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
@@ -88,5 +99,60 @@ int jugadorIAInteligente::funcionHeuristica(Tablero& tableroCopia) {
 }
 
 int jugadorIAInteligente::determinarLineasGanadoras(Tablero& tableroCopia, bool isMax){
-  int lineasGanadoras = 0
+  Ficha ficha;
+  if(isMax){
+    ficha = colorFichaMax;
+  }else{
+    ficha = colorFichaMin;
   }
+  int lineasGanadoras = 0;
+  int filas = tableroCopia.getFilas();
+  int columnas = tableroCopia.getColumnas();
+  vector<vector<Ficha>> tablero = tableroCopia.getTablero();
+  for (int i = 0; i < filas; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i][j + 1] == ficha &&
+          tablero[i][j + 2] == ficha && tablero[i][j + 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  // Columnas//
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 0; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j] == ficha &&
+          tablero[i + 2][j] == ficha && tablero[i + 3][j] == ficha) {
+        lineasGanadoras++;;
+      }
+    }
+  }
+  // Diagonal Derecha
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 0; j < columnas - 3; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j + 1] == ficha &&
+          tablero[i + 2][j + 2] == ficha && tablero[i + 3][j + 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  // Diagonal Izquierda
+  for (int i = 0; i < filas - 3; ++i) {
+    for (int j = 3; j < columnas; ++j) {
+      if (tablero[i][j] == ficha && tablero[i + 1][j - 1] == ficha &&
+          tablero[i + 2][j - 2] == ficha && tablero[i + 3][j - 3] == ficha) {
+        lineasGanadoras++;
+      }
+    }
+  }
+  return lineasGanadoras;
+}
+
+int jugadorIAInteligente::columnasDisponibles(Tablero& tableroCopia){
+  int columnasDisponibles = 0;
+  for(int i = 0; i < tableroCopia.getColumnas(); i++){
+    if(tableroCopia.puedeTirar(i)){
+      columnasDisponibles++;
+    }
+  }
+  return columnasDisponibles;
+}
