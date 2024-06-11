@@ -29,20 +29,22 @@ ii. Para usar el programa depende si se quiere utilizar la interfaz o el andamia
 
 iii.
 Clase Tablero:
-    Para esta clase, las funcionalidades de puedeTirar, soltarFicha, comprobarGanador, comprobarEmpate, mostrarTablero, así como las de getFilas, columnas, colorFicha y setTablero fueron implementadas por Aarón Arce.
-    Sebastián Orozco implementó la funcionalidad de reiniciarTablero.
-    Jose Guerra implementó las funcionalidades de setVictorias y getVictorias para las fichas rojas y azules.
-Clase IJugador:
+    Para esta clase, las funcionalidades de puedeTirar que verifica si se puede tirar una ficha en cierta columna dada por el usuario, bot o IA, soltarFicha que como su nombre indica suelta la ficha en la columna previamente seleccionada y verificada por el programa, comprobarGanador que comprueba si existe un ganador en los 4 estados posibles (vertical, horizontal, diagonal y diagonal inversa), comprobarEmpate que comprueba si existe un empate si el tablero está lleno y no se comprobó un ganador, mostrarTablero que muestra el tablero, así como las de getFilas, columnas, colorFicha y setTablero fueron implementadas por Aarón Arce.
+    Sebastián Orozco implementó la funcionalidad de reiniciarTablero, la cual reinicia el tablero previamente jugado a uno con sus campos vacíos.
+    Jose Guerra implementó las funcionalidades de setVictorias y getVictorias para las fichas rojas y azules, asl cuales da la cantidad de victorias de ambos jugadores en base a las fichas.
 Clase JugadorHumano:
+    Las funcionalidades hechas en dicha clase fueron implementadas por Sebastián Orozco, dichas funcionalidades son los get del nombre del jugador y el color de la ficha del mismo, la funcionalidad de seleccionar columna, la cual tiene throw exception por si no se cumple con lo esperado y devuelve el numero de la columna a seleccionar.
 Clase JugadorIAFacil:
+    Las funcionalidades realizadas en esta clase, fueron implementadas por Sebastián Orozco, estas funcionalidades son los métodos que hereda de IJugador, además del método seleccionar columna el cual devuelve un número random en el rango de las columnas previamente seteadas en el programa, para que este se suelte en el tablero.
 Clase JugadorIAInteligente:
 Clase MenuFrame:
 Clase TableroFrame:
     La funcionalidad de dibujarTablero fue implementada por Aarón Arce, esta funcionalidad permite dibujar el tablero en una ventana aparte del menú de la interfaz.
     También la funcionalidad del evento del mouse con el click izquierdo para dibujar la ficha en la columna presionada fue implementada por Aarón Arce.
 Clase main:
-Clase main3:
-
+    Esta clase llama a MenuFrame para que se imprima el menú del juego y el tablero, estas funcionalidades fueron implementadas tanto por Sebastián Orozco y Aarón Arce.
+Clase main2:
+    Todas las funcionalidades vistas en el código de main2 fueron implementadas por Jose Guerra para realizar el andamiaje.
 iv.
 #Si no da tiempo, añadir que no se pudo terminar de implementar la interfaz :c
 
