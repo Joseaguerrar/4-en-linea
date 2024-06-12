@@ -5,7 +5,6 @@
 #include <string>
 #include <tablero.hh>
 
-
 using namespace std;
 
 class jugadorIAFacil : public IJugador {
