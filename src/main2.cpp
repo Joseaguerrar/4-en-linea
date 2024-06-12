@@ -35,7 +35,6 @@ int seleccionOpcion();
 int pedirColumnas();
 int pedirFilas();
 int seleccionColumna();
-int pedirProfundidadIA();
 string pedirNombre(int);
 Tablero crearTablero();
 jugadorHumano crearJugadorH(int);
@@ -734,13 +733,13 @@ jugadorIAInteligente crearJugadorIA(int n) {
   // Función para crear el jugador IA con su número de jugador respectivo
   Ficha ficha;
   string nombre = pedirNombre(n);
-  int deep = pedirProfundidadIA();
   if (n == 1) {
     ficha = Ficha::Azul;
   } else if (n == 2) {
     ficha = Ficha::Rojo;
   }
-  jugadorIAInteligente jugador = jugadorIAInteligente(nombre, ficha, deep);
+  // Después de probarlo es mejor dejarlo por default en 7
+  jugadorIAInteligente jugador = jugadorIAInteligente(nombre, ficha, 7);
   return jugador;
 }
 string pedirNombre(int n) {
@@ -771,12 +770,6 @@ int pedirFilas() {
   cout << "Digite la cantidad de filas: " << endl;
   filas = seleccionOpcion();
   return filas;
-}
-int pedirProfundidadIA() {
-  int deep;
-  cout << "Digite la dificultad de la IA(Mayor=más difícil): " << endl;
-  cin >> deep;
-  return deep;
 }
 int seleccionColumna() {
   // Pregunta para seleccionar columna
