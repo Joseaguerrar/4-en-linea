@@ -84,7 +84,6 @@ void MenuFrame::OnAnyButtonClicked(wxCommandEvent& evt) {
 // evento de botón de salir
 void MenuFrame::OnButton1Clicked(wxCommandEvent& evt) { 
   this->Close(true); 
-  tablero->Close(true);
   }
 
 //Cuando se presiona el boton continuar se recolecta la siguiente información y se dibuja el tablero
