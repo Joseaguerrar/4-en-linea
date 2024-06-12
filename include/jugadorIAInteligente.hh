@@ -15,11 +15,12 @@ class jugadorIAInteligente : public IJugador {
   string getNombre();
   Ficha getColorFicha();
 
-  //aca se llama al minimax para que se seleccione la mejor columna posible
+  // aca se llama al minimax para que se seleccione la mejor columna posible
   int seleccionarColumna(Tablero& tableroActual);
 
  private:
-  pair<int, int> minimax(Tablero& tableroActual, int profundidad,int alfa,int beta, bool max);
+  pair<int, int> minimax(Tablero& tableroActual, int profundidad, int alfa,
+                         int beta, bool max);
   // TODO: de momento no está bien implementada
   int determinarLineasGanadoras(Tablero& tableroCopia, bool isMax);
   int funcionHeuristica(Tablero& tableroCopia);

@@ -27,7 +27,8 @@ void CiclohumanoContraIA(jugadorHumano, jugadorIAInteligente, Tablero);
 void CiclobotContrabot(jugadorIAFacil, jugadorIAFacil, Tablero);
 void CiclobotContraIA(jugadorIAFacil, jugadorIAInteligente, Tablero);
 void CicloIAContraIA(jugadorIAInteligente, jugadorIAInteligente, Tablero);
-// Funciones para pedir Datos al usuario y crear las respectivas partes del juego
+// Funciones para pedir Datos al usuario y crear las respectivas partes del
+// juego
 void mostrarOpciones();
 bool volveraJugar();
 int seleccionOpcion();
