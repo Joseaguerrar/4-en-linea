@@ -27,7 +27,8 @@ void CiclohumanoContraIA(jugadorHumano, jugadorIAInteligente, Tablero);
 void CiclobotContrabot(jugadorIAFacil, jugadorIAFacil, Tablero);
 void CiclobotContraIA(jugadorIAFacil, jugadorIAInteligente, Tablero);
 void CicloIAContraIA(jugadorIAInteligente, jugadorIAInteligente, Tablero);
-// Funciones para pedir Datos al usuario y crear las respectivas partes del juego
+// Funciones para pedir Datos al usuario y crear las respectivas partes del
+// juego
 void mostrarOpciones();
 bool volveraJugar();
 int seleccionOpcion();
@@ -185,6 +186,7 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
       }
     }
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Se verifica si ganó el jugador1, si es así, termina
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -194,12 +196,14 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es así se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -207,6 +211,7 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -225,6 +230,7 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
       }
     }
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Se verifica si ganó el jugador2, si es así, se termina
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -234,12 +240,14 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es así se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -247,6 +255,7 @@ void CiclohumanoContraHumano(jugadorHumano jugador1, jugadorHumano jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -264,7 +273,7 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
   while (!tablero.comprobarEmpate()) {
     tablero.mostrarTablero();
     cout << "Turno de: " << jugador1.getNombre() << endl;
-    // para capturar las posibles excepciones que puede tener el jugador Humano
+    // excepciones del jugador humano
     bool columnaValida = false;
     while (!columnaValida) {
       try {
@@ -275,6 +284,7 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
       }
     }
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Se verifica si ganó el jugador1, si es así se termina
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -284,12 +294,14 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es el caso, se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -297,6 +309,7 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -306,6 +319,7 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
     cout << "Turno de: " << jugador2.getNombre() << endl;
     columna = jugador2.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Se verifica si ganó el jugador2, si es así se termina
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -315,12 +329,14 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es el caso, se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -328,6 +344,7 @@ void CiclohumanoContraBot(jugadorHumano jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -356,6 +373,7 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
       }
     }
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Se verifica si ganó el jugador1, si es así se termina
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -365,12 +383,14 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es el caso, se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -378,6 +398,7 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -387,6 +408,7 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
     cout << "Turno de: " << jugador2.getNombre() << endl;
     columna = jugador2.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Se verifica si ganó el jugador2, si es así se termina
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -396,12 +418,14 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
     if (tablero.comprobarEmpate()) {
+      // Se verifica si es empate, si es el caso, se termina
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
       cout << "Marcador Global: " << endl;
@@ -409,6 +433,7 @@ void CiclohumanoContraIA(jugadorHumano jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -428,6 +453,8 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
     cout << "Turno de: " << jugador1.getNombre() << endl;
     columna = jugador1.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Después del movimiento de Jugador1 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -437,11 +464,13 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -450,6 +479,7 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -459,6 +489,8 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
     cout << "Turno de: " << jugador2.getNombre() << endl;
     columna = jugador2.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Después del movimiento de Jugador2 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -468,11 +500,13 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -481,6 +515,7 @@ void CiclobotContrabot(jugadorIAFacil jugador1, jugadorIAFacil jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -500,6 +535,8 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
     cout << "Turno de: " << jugador1.getNombre() << endl;
     columna = jugador1.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Después del movimiento de Jugador1 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -509,11 +546,13 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -522,6 +561,7 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -531,6 +571,8 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
     cout << "Turno de: " << jugador2.getNombre() << endl;
     columna = jugador2.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Después del movimiento de Jugador2 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -540,11 +582,13 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -553,6 +597,7 @@ void CiclobotContraIA(jugadorIAFacil jugador1, jugadorIAInteligente jugador2,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -572,6 +617,8 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
     cout << "Turno de: " << jugador1.getNombre() << endl;
     columna = jugador1.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador1.getColorFicha());
+    // Después del movimiento de Jugador1 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador1.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador1.getNombre() << ", ¡Se terminó el juego!"
@@ -581,11 +628,13 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -594,6 +643,7 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
@@ -603,6 +653,8 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
     cout << "Turno de: " << jugador2.getNombre() << endl;
     columna = jugador2.seleccionarColumna(tablero);
     tablero.soltarFicha(columna, jugador2.getColorFicha());
+    // Después del movimiento de Jugador2 se verifica que no haya ganado, si es
+    // así termina el juego
     if (tablero.comprobarGanador(jugador2.getColorFicha())) {
       tablero.mostrarTablero();
       cout << "Ganó: " << jugador2.getNombre() << ", ¡Se terminó el juego!"
@@ -612,11 +664,13 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
       }
     }
+    // Se verifica que no haya empate y si fuera el caso termina el juego
     if (tablero.comprobarEmpate()) {
       tablero.mostrarTablero();
       cout << "Se terminó el juego, es un empate! " << endl;
@@ -625,6 +679,7 @@ void CicloIAContraIA(jugadorIAInteligente jugador1,
            << jugador2.getNombre() << " : " << tablero.getVictoriasRojas()
            << endl;
       if (volveraJugar()) {
+        // Pregunta para volver a jugar
         tablero.reiniciarTablero();
       } else {
         break;
