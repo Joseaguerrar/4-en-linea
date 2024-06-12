@@ -31,7 +31,7 @@ set(SRCS2
     jugadorIAInteligente.cpp
     jugadorHumano.cpp
     jugadorIAFacil.cpp
-    main3.cpp
+    main2.cpp
 )
 
 if(APPLE)

@@ -85,6 +85,7 @@ pair<int, int> jugadorIAInteligente::minimax(Tablero& tableroActual,
     for (int j = 0; j < tableroActual.getColumnas(); j++) {
       //si la columna enviada puede tirar se crea una copia del tablero
       if (tableroActual.puedeTirar(j)) {
+        //se vuelve a crear una copia del tablero para no afectar ni modificar el actual
         Tablero tableroCopia = tableroActual;
         //se suelta la ficha seleccionada anteriormente verificada
         tableroCopia.soltarFicha(j, colorFichaMin);
