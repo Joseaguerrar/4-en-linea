@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
-#include<iostream>
+
+#include <iostream>
 #include <jugadorIAInteligente.hh>
 #include <sstream>
 #include <string>
@@ -41,52 +42,52 @@ TEST(pruebaIAInteligente, casoTresVertical) {
   EXPECT_EQ(bot.seleccionarColumna(tablero), 5);
 }
 
-//se prepara el caso de diagonal en una 5x4
-TEST(pruebaIAInteligente, casoTresDiagonal){
-    Tablero tablero(6,6);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(0,Ficha::Rojo);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(0,Ficha::Rojo);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(1,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(1,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Azul);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Azul);
-    tablero.soltarFicha(3,Ficha::Azul);
+// se prepara el caso de diagonal en una 5x4
+TEST(pruebaIAInteligente, casoTresDiagonal) {
+  Tablero tablero(6, 6);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
 
-    jugadorIAInteligente bot("jugador1", Ficha::Rojo, 3);
-    EXPECT_EQ( bot.seleccionarColumna(tablero), 3);
+  jugadorIAInteligente bot("jugador1", Ficha::Rojo, 3);
+  EXPECT_EQ(bot.seleccionarColumna(tablero), 3);
 }
 
-//casos donde la IA tiene que ganar
+// casos donde la IA tiene que ganar
 
-//se prepara el caso de diagonal en una 5x4
-TEST(pruebaIAInteligente, casoTresDiagonaGanadorl){
-    Tablero tablero(6,6);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(0,Ficha::Rojo);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(0,Ficha::Rojo);
-    tablero.soltarFicha(0,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(1,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(1,Ficha::Azul);
-    tablero.soltarFicha(1,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Azul);
-    tablero.soltarFicha(2,Ficha::Rojo);
-    tablero.soltarFicha(2,Ficha::Azul);
-    tablero.soltarFicha(3,Ficha::Azul);
-    jugadorIAInteligente bot("jugador1", Ficha::Azul, 5);
-    cout<< bot.seleccionarColumna(tablero) << endl;
-    EXPECT_EQ( bot.seleccionarColumna(tablero), 3);
+// se prepara el caso de diagonal en una 5x4
+TEST(pruebaIAInteligente, casoTresDiagonaGanadorl) {
+  Tablero tablero(6, 6);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  jugadorIAInteligente bot("jugador1", Ficha::Azul, 5);
+  cout << bot.seleccionarColumna(tablero) << endl;
+  EXPECT_EQ(bot.seleccionarColumna(tablero), 3);
 }
