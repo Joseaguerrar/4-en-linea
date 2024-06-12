@@ -1,5 +1,5 @@
 #include <wx/wx.h>
-#include "TableroFrame.hh" // Asegúrate de que la ruta del archivo de encabezado sea correcta
+#include "TableroFrame.hh"
 
 using namespace std;
 
@@ -19,22 +19,26 @@ void TableroFrame::OnPaint(wxPaintEvent& event) {
     DibujarTablero(dc);
 }
 
+//Metodo que captura el evento del click del mouse
 void TableroFrame::OnMouseEvent(wxMouseEvent& event) {
+    //Se toma la posicion del mouse en ese momento, mas especificamente la del eje x
     wxPoint position = event.GetPosition();
     int x = position.x;
-
+    //Se toma el tamano de la ventana
     wxSize pantalla = GetClientSize();
     int largoPantalla = pantalla.GetWidth();
     int columnas = tablero.getColumnas();
+    //Se toma el tamano de cada celda
     int celdaLargo = largoPantalla / columnas;
+    //Para saber que columna se selecciono, se divide la posicion x del mouse entre el largo de la celda
     int columnaSeleccionada = x / celdaLargo;
 
-    Ficha ficha = Ficha::Azul; // Asegúrate de inicializar la ficha correctamente
-
+    Ficha ficha = Ficha::Azul;
+    //Si se puede tirar, se suelta la ficha
     if (tablero.puedeTirar(columnaSeleccionada)) {
         tablero.soltarFicha(columnaSeleccionada, ficha);
         tablero.mostrarTablero();
-        Refresh(); // Refresca la ventana para actualizar el dibujo
+        Refresh();
     }
 }
 
@@ -44,7 +48,9 @@ void TableroFrame::OnMouseClick(wxMouseEvent& event) {
     wxLogStatus(mensaje);
 }
 
+//Metodo que dibuja el tablero
 void TableroFrame::DibujarTablero(wxDC& dc) {
+    //Se toma el tamano de la ventana, tanto su largo, como su ancho
     wxSize pantalla = GetClientSize();
     int largoPantalla = pantalla.GetWidth();
     int altoPantalla = pantalla.GetHeight();
