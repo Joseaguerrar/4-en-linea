@@ -205,7 +205,8 @@ TEST(pruebaTablero, reiniciarTablero) {
   EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
 
-//Prueba de que se esta reiniciando el tablero al haber un empate (tablero lleno)
+// Prueba de que se esta reiniciando el tablero al haber un empate (tablero
+// lleno)
 TEST(pruebaTablero, reiniciarTableroLleno) {
   Tablero tablero(4, 4);
   tablero.soltarFicha(0, Ficha::Rojo);
