@@ -756,31 +756,28 @@ string pedirNombre(int n) {
   }
   return nombre;
 }
-int pedirDato(int n){
+int pedirDato(int n) {
   int dato;
-  switch (n)
-  {
-  case 1:
-  // Pregunta para pedir cantidad de Columnas
-  cout << "Digite la cantidad de columnas: " << endl;
-  dato=seleccionOpcion();
-  //mientras sea mayor a 10 pedir de nuevo
-  while (dato>10)
-  {
-    cout << "Deben ser 10 o menos columnas, intente de nuevo:" << endl;
-    dato=seleccionOpcion();
-  }
-  break;
-  case 2:
-  // Pregunta para pedir cantidad de Columnas
-  cout << "Digite la cantidad de filas: " << endl;
-  dato=seleccionOpcion();
-  //mientras sea mayor a 10 pedir de nuevo
-  while (dato>10)
-  {
-    cout << "Deben ser 10 o menos filas, intente de nuevo:" << endl;
-    dato=seleccionOpcion();
-  }
+  switch (n) {
+    case 1:
+      // Pregunta para pedir cantidad de Columnas
+      cout << "Digite la cantidad de columnas: " << endl;
+      dato = seleccionOpcion();
+      // mientras sea mayor a 10 pedir de nuevo
+      while (dato > 10) {
+        cout << "Deben ser 10 o menos columnas, intente de nuevo:" << endl;
+        dato = seleccionOpcion();
+      }
+      break;
+    case 2:
+      // Pregunta para pedir cantidad de Columnas
+      cout << "Digite la cantidad de filas: " << endl;
+      dato = seleccionOpcion();
+      // mientras sea mayor a 10 pedir de nuevo
+      while (dato > 10) {
+        cout << "Deben ser 10 o menos filas, intente de nuevo:" << endl;
+        dato = seleccionOpcion();
+      }
   }
   return dato;
 }
