@@ -32,8 +32,7 @@ void CicloIAContraIA(jugadorIAInteligente, jugadorIAInteligente, Tablero);
 void mostrarOpciones();
 bool volveraJugar();
 int seleccionOpcion();
-int pedirColumnas();
-int pedirFilas();
+int pedirDato(int);
 int seleccionColumna();
 string pedirNombre(int);
 Tablero crearTablero();
@@ -700,8 +699,8 @@ void mostrarOpciones() {
 }
 Tablero crearTablero() {
   // Función que devuelve el tablero con los datos ingresados por el usuario
-  int columnas = pedirColumnas();
-  int filas = pedirFilas();
+  int columnas = pedirDato(1);
+  int filas = pedirDato(2);
   Tablero tablero = Tablero(filas, columnas);
   return tablero;
 }
@@ -757,19 +756,31 @@ string pedirNombre(int n) {
   }
   return nombre;
 }
-int pedirColumnas() {
+int pedirDato(int n){
+  int dato;
+  switch (n)
+  {
+  case 1:
   // Pregunta para pedir cantidad de Columnas
-  int columnas;
   cout << "Digite la cantidad de columnas: " << endl;
-  columnas = seleccionOpcion();
-  return columnas;
-}
-int pedirFilas() {
-  // Pregunta para pedir cantidad de Filas
-  int filas;
+  dato=seleccionOpcion();
+  while (dato>10)
+  {
+    cout << "Deben ser 10 o menos columnas, intente de nuevo:" << endl;
+    dato=seleccionOpcion();
+  }
+  break;
+  case 2:
+  // Pregunta para pedir cantidad de Columnas
   cout << "Digite la cantidad de filas: " << endl;
-  filas = seleccionOpcion();
-  return filas;
+  dato=seleccionOpcion();
+  while (dato>10)
+  {
+    cout << "Deben ser 10 o menos filas, intente de nuevo:" << endl;
+    dato=seleccionOpcion();
+  }
+  }
+  return dato;
 }
 int seleccionColumna() {
   // Pregunta para seleccionar columna
