@@ -204,3 +204,38 @@ TEST(pruebaTablero, reiniciarTablero) {
   EXPECT_EQ(tablero.getVictoriasAzul(), 2);
   EXPECT_EQ(tablero.getVictoriasRojas(), 0);
 }
+
+// Prueba de que se esta reiniciando el tablero al haber un empate (tablero
+// lleno)
+TEST(pruebaTablero, reiniciarTableroLleno) {
+  Tablero tablero(4, 4);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Rojo);
+  tablero.soltarFicha(0, Ficha::Azul);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Rojo);
+  tablero.soltarFicha(1, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Rojo);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(2, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Azul);
+  tablero.soltarFicha(3, Ficha::Rojo);
+  EXPECT_FALSE(tablero.comprobarGanador(Ficha::Azul));
+  EXPECT_FALSE(tablero.comprobarGanador(Ficha::Rojo));
+  EXPECT_EQ(tablero.getVictoriasAzul(), 0);
+  EXPECT_EQ(tablero.getVictoriasRojas(), 0);
+
+  tablero.reiniciarTablero();
+
+  for (int i = 0; i < tablero.getFilas(); i++) {
+    for (int j = 0; j < tablero.getColumnas(); j++) {
+      Ficha celda = tablero.getTablero()[i][j];
+      EXPECT_EQ(celda, Ficha::Vacio);
+    }
+  }
+}

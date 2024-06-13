@@ -84,7 +84,6 @@ void MenuFrame::OnAnyButtonClicked(wxCommandEvent& evt) {
 // evento de botón de salir
 void MenuFrame::OnButton1Clicked(wxCommandEvent& evt) { 
   this->Close(true); 
-  tablero->Close(true);
   }
 
 //Cuando se presiona el boton continuar se recolecta la siguiente información y se dibuja el tablero
@@ -101,6 +100,7 @@ void MenuFrame::OnButton2Clicked(wxCommandEvent& evt) {
   int fila = wxStringToInt(filaSeleccionada);
   int columna = wxStringToInt(columnaSeleccionada);
   tablero = new TableroFrame("Tablero", fila, columna);
+  
   // Mostrar la ventana del tablero
   tablero->Show(true);
 }
@@ -110,4 +110,3 @@ int MenuFrame::wxStringToInt(wxString numeroAConvertir){
   numero = wxAtoi(numeroAConvertir);
   return numero;
 }
-

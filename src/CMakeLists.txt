@@ -1,6 +1,6 @@
 # TODO: Cambiar el nombre del destino. Este va a ser el nombre del ejecutable
-set(TARGET_NAME PlantillaWxWidgets)
-set(TARGET_NAME2 ANDAMIAJE)
+set(TARGET_NAME JUEGOINTERFAZ)
+set(TARGET_NAME2 JUEGOTERMINAL)
 project(${TARGET_NAME})
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 

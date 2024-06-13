@@ -4,15 +4,16 @@
 
 #include <tablero.hh>
 
-class TableroFrame : public wxFrame {
- public:
-  TableroFrame(const wxString& title, int filas, int columnas);
-
- private:
-  void OnPaint(wxPaintEvent& event);
-  void DibujarTablero(wxDC& dc);
-  wxDECLARE_EVENT_TABLE();
-  Tablero tablero;
+class TableroFrame: public wxFrame{
+    public:
+        TableroFrame(const wxString& title, int filas, int columnas);
+    private:
+        void OnPaint(wxPaintEvent& event);
+        void DibujarTablero(wxDC& dc);
+        void OnMouseEvent(wxMouseEvent& event);
+        void OnExit(wxCommandEvent& event);
+        wxDECLARE_EVENT_TABLE();
+        Tablero tablero;
 };
 
 #endif
