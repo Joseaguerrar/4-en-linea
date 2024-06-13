@@ -764,8 +764,8 @@ int pedirDato(int n) {
       cout << "Digite la cantidad de columnas: " << endl;
       dato = seleccionOpcion();
       // mientras sea mayor a 10 pedir de nuevo
-      while (dato > 10) {
-        cout << "Deben ser 10 o menos columnas, intente de nuevo:" << endl;
+      while (dato > 10 || dato < 4) {
+        cout << "Deben estar entre 4-10 columnas, intente de nuevo:" << endl;
         dato = seleccionOpcion();
       }
       break;
@@ -774,8 +774,8 @@ int pedirDato(int n) {
       cout << "Digite la cantidad de filas: " << endl;
       dato = seleccionOpcion();
       // mientras sea mayor a 10 pedir de nuevo
-      while (dato > 10) {
-        cout << "Deben ser 10 o menos filas, intente de nuevo:" << endl;
+      while (dato > 10 || dato < 4) {
+        cout << "Debe estar entre 4-10 filas, intente de nuevo:" << endl;
         dato = seleccionOpcion();
       }
   }
