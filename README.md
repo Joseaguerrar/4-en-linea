@@ -11,9 +11,9 @@ i. Para compilar el programa, se deben seguir los siguientes comandos:
     1. cmake -S . -B build -G Ninja
     2. cmake --build build
 *Si se quiere ejecutar la interfaz
-    3. ./build/src/PlantillaWxWidgets
+    3. ./build/src/JUEGOINTERFAZ
 *Si se quiere ejecutar el andamiaje
-    3. ./build/src/ANDAMIAJE (usar esta para ver la correcta implementación de todas las clases y el juego en sí)
+    3. ./build/src/JUEGOINTERFAZ (usar esta para ver la correcta implementación de todas las clases y el juego en sí)
 
 ii. Para usar el programa depende si se quiere utilizar la interfaz o el andamiaje
 *Para utilizar la interfaz:
@@ -58,3 +58,16 @@ vi. Para ejecutar las pruebas se deben seguir los siguientes comandos:
     1. cmake -S . -B build -G Ninja
     2. cmake --build build
     3. ./build/tests/unit_tests
+
+Las imágenes del juego se encuentran en el folder "imágenesReadme"
+Imágenes de como compilar, ejecutar el juego y sus pruebas:
+
+Para crear la carpeta build:![alt text](/ImágenesReadme/CreandoCarpetaBuild.png)
+Para compilar: ![alt text](/ImágenesReadme/Compilando.png)
+Para ejecutar las pruebas: ![alt text](/ImágenesReadme/PruebasUnitarias.png)
+Para correr el archivo que tiene la interfáz: ![alt text](/ImágenesReadme/juegoInterfaz.png)
+Para correr el archivo que tiene la terminal o consola ![alt text](/ImágenesReadme/juegoTerminal.png)
+
+Imagenes del juego en su implementación con interfaz (no se logró terminar): ![alt text](/ImágenesReadme/Menú%20del%20juego%20y%20juego.png)
+
+Imagenes del juego en terminal o consola (favor probar este para las funcionalidades del juego): ![alt text](/ImágenesReadme/Juego%20en%20terminal.png) 
