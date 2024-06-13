@@ -1,17 +1,30 @@
 #include <wx/wx.h>
-#include "TableroFrame.hh"
+#include <TableroFrame.hh>
 
 using namespace std;
 
 wxBEGIN_EVENT_TABLE(TableroFrame, wxFrame)
     EVT_PAINT(TableroFrame::OnPaint)
-    EVT_LEFT_DOWN(TableroFrame::OnMouseClick)
 wxEND_EVENT_TABLE()
 
 TableroFrame::TableroFrame(const wxString& title, int filas, int columnas)
     : wxFrame(nullptr, wxID_ANY, title), tablero(filas, columnas) {
     wxPanel* panel = new wxPanel(this);
     panel->Bind(wxEVT_LEFT_DOWN, &TableroFrame::OnMouseEvent, this);
+    //para agregar el botón para salir
+    wxMenu *menuFile = new wxMenu;
+    menuFile->AppendSeparator();
+    menuFile->Append(wxID_EXIT);
+ 
+    wxMenu *menuHelp = new wxMenu;
+    menuHelp->Append(wxID_ABOUT);
+ 
+    wxMenuBar *menuBar = new wxMenuBar;
+    menuBar->Append(menuFile, "&File");
+ 
+    SetMenuBar(menuBar);
+    Bind(wxEVT_MENU, &TableroFrame::OnExit, this, wxID_EXIT);
+ 
 }
 
 void TableroFrame::OnPaint(wxPaintEvent& event) {
@@ -37,15 +50,8 @@ void TableroFrame::OnMouseEvent(wxMouseEvent& event) {
     //Si se puede tirar, se suelta la ficha
     if (tablero.puedeTirar(columnaSeleccionada)) {
         tablero.soltarFicha(columnaSeleccionada, ficha);
-        tablero.mostrarTablero();
         Refresh();
     }
-}
-
-void TableroFrame::OnMouseClick(wxMouseEvent& event) {
-    wxPoint mousePos = event.GetPosition();
-    wxString mensaje = wxString::Format("(x=%d y=%d)", mousePos.x, mousePos.y);
-    wxLogStatus(mensaje);
 }
 
 //Metodo que dibuja el tablero
@@ -78,4 +84,9 @@ void TableroFrame::DibujarTablero(wxDC& dc) {
             dc.SetBrush(*wxWHITE_BRUSH);
         }
     }
+}
+
+void TableroFrame::OnExit(wxCommandEvent& event)
+{
+    Close(true);
 }

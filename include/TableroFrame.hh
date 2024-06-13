@@ -10,8 +10,8 @@ class TableroFrame: public wxFrame{
     private:
         void OnPaint(wxPaintEvent& event);
         void DibujarTablero(wxDC& dc);
-        void OnMouseClick(wxMouseEvent& event);
         void OnMouseEvent(wxMouseEvent& event);
+        void OnExit(wxCommandEvent& event);
         wxDECLARE_EVENT_TABLE();
         Tablero tablero;
 };
