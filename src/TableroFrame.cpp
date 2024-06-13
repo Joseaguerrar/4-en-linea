@@ -1,5 +1,5 @@
 #include <wx/wx.h>
-#include "TableroFrame.hh"
+#include <TableroFrame.hh>
 
 using namespace std;
 
