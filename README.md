@@ -62,12 +62,12 @@ vi. Para ejecutar las pruebas se deben seguir los siguientes comandos:
 Las imágenes del juego se encuentran en el folder "imágenesReadme"
 Imágenes de como compilar, ejecutar el juego y sus pruebas:
 
-Para crear la carpeta build:![alt text](/ImágenesReadme/CreandoCarpetaBuild.png)
-Para compilar: ![alt text](/ImágenesReadme/Compilando.png)
-Para ejecutar las pruebas: ![alt text](/ImágenesReadme/PruebasUnitarias.png)
-Para correr el archivo que tiene la interfáz: ![alt text](/ImágenesReadme/juegoInterfaz.png)
-Para correr el archivo que tiene la terminal o consola ![alt text](/ImágenesReadme/juegoTerminal.png)
+Para crear la carpeta build:![alt text](/4-en-linea/FotosReadme/CreandoCarpetaBuild.png)
+Para compilar: ![alt text](/4-en-linea/FotosReadme/Compilando.png)
+Para ejecutar las pruebas: ![alt text](/4-en-linea/FotosReadme/PruebasUnitarias.png)
+Para correr el archivo que tiene la interfáz: ![alt text](/4-en-linea/FotosReadme/juegoInterfaz.png)
+Para correr el archivo que tiene la terminal o consola ![alt text](/4-en-linea/FotosReadme/juegoTerminal.png)
 
-Imagenes del juego en su implementación con interfaz (no se logró terminar): ![alt text](/ImágenesReadme/Menú%20del%20juego%20y%20juego.png)
+Imagenes del juego en su implementación con interfaz (no se logró terminar): ![alt text](/4-en-linea/FotosReadme/Menú%20del%20juego%20y%20juego.png)
 
-Imagenes del juego en terminal o consola (favor probar este para las funcionalidades del juego): ![alt text](/ImágenesReadme/Juego%20en%20terminal.png) 
+Imagenes del juego en terminal o consola (favor probar este para las funcionalidades del juego): ![alt text](/4-en-linea/FotosReadme/Juego%20en%20terminal.png) 
